@@ -12,9 +12,9 @@ import numpy as np
 import pyaudio
 from scipy.io import wavfile
 from scipy.io.wavfile import write
+import wave
 import matplotlib.pyplot as plt
 import matplotlib
-import wave
 
 
 p = pyaudio.PyAudio()
@@ -124,9 +124,10 @@ def genSine2(freq):
     signal = np.sin(2 * np.pi * samples * freq /fs)
     signal_quiet = signal * 0.3
     signal_int = np.int16(signal_quiet * 32767)
+    print(type(signal_int))
     write(str(freq) + ' Hz_sine_wave.wav', fs, signal_int)
 
-genSine(500)
+genSine(800)
 #genSine2(500)
 
 if __name__ == "__main__":

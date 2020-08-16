@@ -62,9 +62,9 @@ def window():
     sys.exit(app.exec_())
 
 #HOW TO MAKE A BANDPASS FILTER IN PYTHON| THE EASY WAY, Leron Julian
-samplerate = 8192
+samplerate = 22100
 lowcut = 20.0
-highcut = 50.0
+highcut = 2000.0
 
 nyq = 0.5 * samplerate
 low = lowcut / nyq
