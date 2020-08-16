@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="12c2b299-4f1b-48df-85f6-5a802b42be00" name="Default" comment="&#10;Initial Commit.&#10;Visualisers and Bandpass&#10;carrier modulation work in progress">
-      <change beforePath="$PROJECT_DIR$/venv/Simple_visualiser/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Simple_visualiser/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="12c2b299-4f1b-48df-85f6-5a802b42be00" name="Default" comment="&#10;Initial Commit.&#10;Visualisers and Bandpass&#10;carrier modulation work in progress" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,18 +59,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="78">
               <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/Simple_visualiser/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1717">
-              <caret line="109" selection-start-line="109" selection-end-line="109" />
-              <folding>
-                <element signature="e#55#69#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -153,12 +139,6 @@
               <item name="CI_Simulator" type="462c0819:PsiDirectoryNode" />
               <item name="venv" type="462c0819:PsiDirectoryNode" />
               <item name="CarrierModulation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CI_Simulator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CI_Simulator" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-              <item name="Simple_visualiser" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CI_Simulator" type="b2602c69:ProjectViewProjectNode" />
