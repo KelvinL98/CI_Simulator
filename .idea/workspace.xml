@@ -365,11 +365,11 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.502834" side_tool="true" weight="0.32394367" />
       <window_info anchor="right" x="0" y="0" width="273" height="504" id="Documentation" order="5" sideWeight="0.5104712" side_tool="true" visible="true" weight="0.2340081" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.3274648" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3274648" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32922536" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49716598" weight="0.32394367" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3274648" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1562753" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3274648" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1562753" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.32955465" />
       <window_info anchor="right" x="0" y="11" width="1281" height="667" id="SciView" order="4" sideWeight="0.4895288" visible="true" weight="0.2340081" />
@@ -442,6 +442,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="SHOW_UNVERSIONED_FILES_WHILE_COMMIT" value="false" />
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="&#10;Initial Commit.&#10;Visualisers and Bandpass&#10;carrier modulation work in progress" />
     <option name="LAST_COMMIT_MESSAGE" value="&#10;Initial Commit.&#10;Visualisers and Bandpass&#10;carrier modulation work in progress" />
