@@ -23,7 +23,7 @@ f = 120 #frequency of sine carrier
 
 carrier = np.nan
 
-record = np.empty([128])
+record = np.empty([chunk])
 
 class MyWindow(QMainWindow):
     #PYQT5 TUTORIALS, TECH WITH TIM
@@ -79,6 +79,12 @@ def genSine(frequency, samplingFrequency, chunk):
                    )).astype(np.float32)
     carrier = sine
 
+
+def genNoise():
+    global carrier
+    #return np.random.normal(0, 0.1, chunk)
+
+    
 def ampMod(s1, s2):
     return np.multiply(s1, s2)
 
