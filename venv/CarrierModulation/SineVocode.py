@@ -133,7 +133,7 @@ def callback(in_data, frame_count, time_info, flag):
     if stop:
        # signal_int = np.int16(np.multiply(record, 32767))
 
-        write(str(f) + ' Hz_sine_vocoded.wav', fs, record)
+        write(str(f) + 'Hz_sine_vocoded.wav', fs, record)
         print("Stop")
         return (audio_data_s, paComplete)
 

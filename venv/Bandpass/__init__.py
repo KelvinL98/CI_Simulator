@@ -76,7 +76,7 @@ b,a = scipy.signal.butter(order, [low, high], 'bandpass', analog = False)
 #y = scipy.signal.filtfilt(b, a, signal, axis= 0)
 
 N=32
-bpass = scipy.signal.remez(N, [0.0,0.05,0.1,0.3,0.4,0.5], [0.0,1.0,0.0], weight = [100.0,1.0,100.0])
+bpass = scipy.signal.remez(N, [0.0,0.05,0.1,0.3,0.4,0.5], [0.001,1.0,0.001], weight = [100.0,1.0,100.0])
 z = np.zeros(N-1)
 
 def callback(in_data, frame_count, time_info, flag):
