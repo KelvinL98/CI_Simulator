@@ -17,12 +17,13 @@ import wave
 filter_on = False
 stop = False
 
-fs = 22050
-chunk = 128
-f = 120
+fs = 22050 #sample rate
+chunk = 128 #frame size
+f = 120 #frequency of sine carrier
+
 carrier = np.nan
 
-record = np.empty([128])
+record = np.empty([chunk])
 
 class MyWindow(QMainWindow):
     #PYQT5 TUTORIALS, TECH WITH TIM
@@ -78,6 +79,12 @@ def genSine(frequency, samplingFrequency, chunk):
                    )).astype(np.float32)
     carrier = sine
 
+
+def genNoise():
+    global carrier
+    #return np.random.normal(0, 0.1, chunk)
+
+    
 def ampMod(s1, s2):
     return np.multiply(s1, s2)
 
@@ -125,15 +132,15 @@ def callback(in_data, frame_count, time_info, flag):
 
         #filtered = filter(audio_data_s)
         filtered = ampMod(audio_data_s , carrier)
-
+         
         audio_data_s = filtered.astype(np.float32)
-
+        #append current chunk to record
         record =  np.append(record, audio_data_s)
 
     if stop:
        # signal_int = np.int16(np.multiply(record, 32767))
-
-        write(str(f) + 'Hz_sine_vocoded.wav', fs, record)
+        #write record to wav file.
+        write(str(f) + ' Hz_sine_vocoded.wav', fs, record)
         print("Stop")
         return (audio_data_s, paComplete)
 
