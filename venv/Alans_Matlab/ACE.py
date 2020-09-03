@@ -3,22 +3,22 @@ import numpy.matlib
 from scipy.fftpack import fft
 class ACE(object):
 
-    userMap #map
-    framesize #no. samples in one frame
-    fs #sampling rate of audio
-    fftsize #size of fft
-    stimorder #order of electrode stim
-    windowtype #type of window to apply
-    outputmode #determines output after process step
+    userMap = None  #map
+    framesize = None #no. samples in one frame
+    fs = None #sampling rate of audio
+    fftsize = None #size of fft
+    stimorder = None #order of electrode stim
+    windowtype = None #type of window to apply
+    outputmode = None #determines output after process step
 
     #precalculated values for speed
-    numbins
-    window
-    params
+    numbins = None
+    window = None
+    params = None
 
     #memory
-    bufhistory
-    z
+    bufhistory = None
+    z = None
 
     def __init__(self):
         self.fftsize = 128
@@ -122,5 +122,5 @@ class ACE(object):
         for i in range(1,userMap.NMaximaReject):
             for j in range(0,np.ma.size(u,1)):
                 u[i][j]= np.NAN
-        
+
 
