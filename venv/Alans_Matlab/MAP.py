@@ -1,6 +1,7 @@
 import constant
 import re
 import csv
+import scipy
 
 class MAP(object):
     #properties
@@ -81,16 +82,17 @@ class MAP(object):
             rows.append(row)
 
     def LGF_proc(self, p, u):
-        r = (u - p.base_level)/(p.sat_level - p.base_level)
-
+        r = (np.subtract(u, p.base_level))/(p.sat_level - p.base_level)
+        sat = 0
         if r > 1:
+            sat = 1
             r = 1
         if r < 0:
-            sub = True
+            vsub = p.sub_mag
             r = 0
 
         v = np.log(1 + p.lgf_alpha * r) / np.log(1 + p.lgf_alpha)
-        if sub == True:
+        return [v,sub, sat]
 
 
     def LGF_Q(self, alpha, base_level, sat_level):
@@ -102,6 +104,7 @@ class MAP(object):
         p = LGF_proc(p, input_level)
         q = 100*(1-p)
         return q
+
     def LGF_Q_diff(self, log_alpha, Q, BaseLevel, SaturationLevel):
         alpha = np.exp(log_alpha)
         return (LGF_Q(alpha, base_level, sat_level) - Q)
@@ -110,7 +113,14 @@ class MAP(object):
         log_alpha = 0
         while True:
             log_alpha = log_alpha + 1
-            Q_diff = LGF_Q_diff
+            Q_diff = LGF_Q_diff(log_alpha,Q,BaseLevel,SaturationLevel)
+            if np.less(Q_diff, 0):
+                break
+        interval =  np.array([(log_alpha - 1), log_alpha])
+
+        log_alpha = scipy.optimize.fsolve(LGF_Q_diff, interval, args=(Q, BaseLevel, Saturationlevel))
+        alpha = np.exp(log_alpha)
+
 
 
 
@@ -151,6 +161,9 @@ class MAP(object):
         self.ChannelOrder = np.swapaxes(reversed(range(1,23)), 0,1)
         self.Shift = np.ceil(16000/900)
         self.AnalysisRate = np.round(16000/self.Shift)
+        self.LGF_alpha = calc_LGF_alpha(self.Q, self.BaseLevel, self.SaturationLevel)
+
+
 
 
 

@@ -1,6 +1,7 @@
 import numpy as np
 import numpy.matlib
 from scipy.fftpack import fft
+
 class ACE(object):
 
     userMap = None  #map
@@ -117,10 +118,42 @@ class ACE(object):
         #pick N highets values
         x0 = size(u,1) * (np.arange(0,nFrames-1))
         [_,index] = np.sort(u,1)
-        temp = np.matlib.repmat(x0, userMap.NMaximaReject,1)
+        #alternative to matlab list like indexing of u. that doesnt exist in python
+        #divide value of offset by 22 (Number of Maxima).
+        offset = np.matlib.repmat(x0, userMap.NMaximaReject,1)
+        for i in range(0, userMap.NMaximaReject):
+                u[i][temp[i]/22] = np.nan
 
-        for i in range(1,userMap.NMaximaReject):
-            for j in range(0,np.ma.size(u,1)):
-                u[i][j]= np.NAN
+
+        #apply compression
+        u = compress(u, userMap.BaseLevel, userMap.SaturationLevel, userMap.LGF_Alpha, -1.0E-10)
+
+        #reverse order of rows to match map channel order
+        u = np.flip(u,1)
+
+        #missing stuff for vector output
+
+        #electrodes vector, which electrode isbeing fired
+        out.electrodes = np.flip(np.matlib.repmat(userMap.ChannelOrder,1, nFrames),2)
+
+
+
+def compress(u, base_level, saturation_level, lgf_alpha, sub_mag):
+    r = (np.subtract(u,base_level))/(saturation_level - base_level)
+    sat = np.logical(r > 1)
+    for i in range(0,len(r)):
+        if sat[i]:
+            r[i] = 1
+
+    sub = np.logical(r < 0)
+    for i in range(0,len(r)):
+        if sub[i]:
+            r[i] = 0;
+
+    v = log(1 + lgf_alpha * r) / log(1 + lgf_alpha);
+
+    for i in range(0,len(v)):
+        if sub[i]:
+            v[i] = sub_mag
 
 
