@@ -2,3 +2,5 @@
 *.xml
 *.xml
 venv/Simple_visualiser/test.py
+.idea/workspace.xml
+venv/Simple_visualiser/test.py
