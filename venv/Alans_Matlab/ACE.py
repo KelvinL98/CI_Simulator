@@ -2,6 +2,8 @@ import numpy as np
 import numpy.matlib
 from scipy.fftpack import fft
 import scipy.signal
+import MAP
+
 
 
 class ACE(object):
@@ -30,7 +32,7 @@ class ACE(object):
         self.outputmode = 'matrix'
 
 
-    def initialise(self, userMap, fs, framesize = self.fftsize):
+    def initialise(self, userMap, fs, framesize):
         self.userMap = userMap
         self.fs = fs
         self.framesize = framesize
@@ -38,7 +40,8 @@ class ACE(object):
         #precalc params
         self.numbins = self.fftsize/2 + 1
         self.window = set_window(self.windowtype, self.framesize)
-        self.userMap.set_stim_orer(self.stimorder)
+        #hardcoded
+        #self.userMap.set_stim_orer(self.stimorder)
         self.params = calculate_params(self.userMap, self)
 
         #preallocate memory buffers
@@ -159,14 +162,24 @@ def calculate_params(m, self):
     return params
 
 def set_window(type,blocksize):
-    if lower(type) == "hanning":
+
+    if type.lower() == "hanning":
         a = [0.5, 0.5, 0.0, 0.0]
-    elif lower(type) == "hamming":
+    elif type.lower() == "hamming":
         a = [0.54, 0.46, 0.0, 0.0]
-    elif lower(type) == "blackman":
+    elif type.lower() == "blackman":
         a = [0.42, 0.5, 0.08, 0]
     else:
         raise Exception("unknown window type")
+    n = np.vstack(np.array(range(0,blocksize)))
+    r = np.divide(np.multiply((2 * np.pi), n), blocksize)
+    # w = a(1) - a(2)*cos(r) + a(3)*cos(2*r) - a(4)*cos(3*r);
+    w1 = np.subtract(a[0], np.multiply(a[1], np.cos(r)))
+    w2 = np.multiply(a[2], np.cos(np.multiply(2, r)) )
+    w3 = np.multiply(a[3], np.cos(np.multiply(3,r)))
+    w = np.add(w1,w2)
+    w = np.subtract(w,w3)
+    return w
 
 def calculate_weights(numbands, numbins):
     band_bins = np.array(FFT_band_bins(numbands))

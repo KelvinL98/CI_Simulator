@@ -10,4 +10,6 @@ def resample_tfm(tfm, analysis_rate, fs):
         sample_indices = np.round(sample_points + 0.5)
 
         for i in range(0, np.size(tfm,2)):
-            tfm[i][sample_indices]
+            for j in range(0,np.size(sample_indices,2)):
+                tfm[i][j] = sample_indices[j]
+    return tfm
