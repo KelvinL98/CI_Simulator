@@ -32,13 +32,19 @@ class ACE(object):
         self.outputmode = 'matrix'
 
 
-    def initialise(self, userMap, fs, framesize):
+    def initialise(self, userMap, fs, framesize = 0):
         self.userMap = userMap
         self.fs = fs
-        self.framesize = framesize
+        if framesize == 0:
+            print("fft", self.fftsize)
+            self.framesize = self.fftsize
+        else:
+            self.framesize = framesize
+            print("gg", self.framesize)
 
         #precalc params
         self.numbins = self.fftsize/2 + 1
+
         self.window = set_window(self.windowtype, self.framesize)
         #hardcoded
         #self.userMap.set_stim_orer(self.stimorder)
@@ -49,10 +55,10 @@ class ACE(object):
         self.z = []
 
     def set_output_mode(self, mode):
-        if lower(mode) == 'vector':
-            self.outputmode = lower(mode)
-        elif lower(mode) == 'matrix':
-            self.outputmode = lower(mode)
+        if mode.lower() == 'vector':
+            self.outputmode = mode.lower()
+        elif mode.lower() == 'matrix':
+            self.outputmode = mode.lower()
         else:
             raise Exception("Supported output modes are vector or matrix")
 
@@ -62,43 +68,18 @@ class ACE(object):
             input, self.userMap, self.params, self.bufhistory, self.z)
         return out
 
-    def buffer(x, n, p=0, opt=None):
-        if opt not in ('nodelay', None):
-            raise ValueError('{} not implemented'.format(opt))
 
-        i = 0
-        if opt == 'nodelay':
-            # No zeros at array start
-            result = x[:n]
-            i = n
-        else:
-            # Start with `p` zeros
-            result = np.hstack([np.zeros(p), x[:n - p]])
-            i = n - p
-        # Make 2D array, cast to list for .append()
-        result = list(np.expand_dims(result, axis=0))
-
-        while i < len(x):
-            # Create next column, add `p` results from last col if given
-            col = x[i:i + (n - p)]
-            if p != 0:
-                col = np.hstack([result[-1][-p:], col])
-
-            # Append zeros if last row and not length `n`
-            if len(col):
-                col = np.hstack([col, np.zeros(n - len(col))])
-
-            # Combine result with next row
-            result.append(np.array(col))
-            i += (n - p)
-
-        return np.vstack(result).T
 
     def run_ace(self, input, userMap, params, bufhistory,z):
 
         #divide audio into time shifted chunks
+        ##matlab signature buffer(x,n,p,opt) signal vector x, over/underlap by p,segments of length n,
+        #  opt vector of samples to precede
+        #[z;input] is the same as input as far as i can tell as z is null.
 
-        [u, z, bufhistory] = buffer( np.vstack(z,input), self.framesize, self.params.overlap, bufhistory)
+        #this version has no buffer history!!!! will need to implement
+        print(input,self.framesize,self.params.overlap,bufhistory)
+        [u, z, bufhistory] = buffer( input, self.framesize, p=self.params.overlap)
         nFrames = u.shape(2)
 
         #apply window
@@ -150,6 +131,8 @@ class ACE(object):
 
 ###helper functions
 def calculate_params(m, self):
+    print(type(m), type(self))
+    params = type('param', (object,), {'shiftsize': m.Shift, 'overlap': self.framesize- m.Shift, 'weights': []})
     params.shiftsize = m.Shift
     params.overlap = self.framesize - m.Shift
 
@@ -171,7 +154,7 @@ def set_window(type,blocksize):
         a = [0.42, 0.5, 0.08, 0]
     else:
         raise Exception("unknown window type")
-    n = np.vstack(np.array(range(0,blocksize)))
+    n = np.vstack(np.array(range(0,int(blocksize))))
     r = np.divide(np.multiply((2 * np.pi), n), blocksize)
     # w = a(1) - a(2)*cos(r) + a(3)*cos(2*r) - a(4)*cos(3*r);
     w1 = np.subtract(a[0], np.multiply(a[1], np.cos(r)))
@@ -183,27 +166,48 @@ def set_window(type,blocksize):
 
 def calculate_weights(numbands, numbins):
     band_bins = np.array(FFT_band_bins(numbands))
+
     band_bins = band_bins.reshape(-1,1)
-    w = np.zeros(numbands, numbins)
-    bin = 2 #ignore bins 0 and 1
-    for i in range(0,numbands):
+    band_bins = np.insert(band_bins,0,0) #add zero att the front of array so indexing matches matlab code
+    print(band_bins)
+    w = np.zeros((numbands, int(numbins)))
+    bin = 3 #ignore bins 0 and 1
+
+    for i in range(1,numbands+1):
         width = band_bins[i]
-        for j in range(bin, (bin + width - 1)):
-            w[i][j] = 1
-            bin = bin + width
+        setToOne(w, i, width, bin)
+        print(i," yoohoo", band_bins[i], bin)
+
+        bin = bin + width
     return [w, band_bins]
 
+def setToOne(w, i, width, bin):
+    r = bin + int(width) - 1
+    j = bin
+    while j < r:
+        print(bin)
+        #-1 offset to match array to matlab array which starts at 1 rather than 0.
+        w[i-1][j-1] = 1
+        j+=1
+
+
+
+
 def freq_response_equalization(w, window, blocksize, numbands, band_bins):
-    freq_response =  scipy.signal.freqz(np.divide(window,2), 1, blocksize)
-    power_response = np.matmul(freq_response, np.conj(freq_response))
+    [freq_response, _] =  scipy.signal.freqz(np.divide(window,2), 1, blocksize)
+    conj = np.conj(freq_response)
+    print(np.asarray(conj), "x")
+    print(np.asarray(freq_response))
+    print(len(conj), len(freq_response))
+    power_response = np.multiply(np.asarray(freq_response), np.asarray(conj))
 
     P1 = power_response[0]
     P2 = np.multiply(2, power_response[1])
-    P3 = power_response[0], (np.multiply(2, power_response[2]))
+    P3 = np.add(power_response[0], (np.multiply(2, power_response[2])))
 
-    power_gains = np.zeros(numbands, 1)
+    power_gains = np.zeros((numbands, 1))
     for i in range(0, numbands):
-        width = band_bins(i)
+        width = band_bins[i]
         if width == 1:
             power_gains[i] = P1
         elif width == 2:
@@ -212,7 +216,9 @@ def freq_response_equalization(w, window, blocksize, numbands, band_bins):
             power_gains[i] = P3
 
     for i in range(0, numbands - 1):
-        for j in range(0, w.shape(2)):
+        print(np.asarray(w).shape, "X")
+        r = np.asarray(w).shape
+        for j in range(0, r[1]):
             w[i][j] = np.divide(w[i][j], power_gains[i])
     return w
 
@@ -263,6 +269,7 @@ def FFT_band_bins(num_bands):
         widths = 62 # 1
     else:
         raise Exception("illegal number of bands")
+    return widths
 
 
 
@@ -286,3 +293,31 @@ def compress(u, base_level, saturation_level, lgf_alpha, sub_mag):
             v[i] = sub_mag
 
     return [v, sub, sat]
+
+
+def buffer(X, n, p=0):
+
+    import numpy as np
+    d = n - p
+    #print(d)
+    m = len(X)//d
+    c = n//d
+    #print(c)
+    if m * d != len(X):
+        m = m + 1
+    #print(m)
+
+    Xn = np.zeros(int(d*m))
+    Xn[:len(X)] = X
+    print(Xn,m,d)
+    Xn = np.reshape(Xn,(int(m),int(d)))
+    Xn_out = Xn
+    for i in range(int(c)-1):
+        Xne = np.concatenate((Xn,np.zeros((i+1,d))))
+        Xn_out = np.concatenate((Xn_out, Xne[i+1:,:]),axis=1)
+    #print(Xn_out.shape)
+    if n-d*c>0:
+        Xne = np.concatenate((Xn, np.zeros((c,d))))
+        Xn_out = np.concatenate((Xn_out,Xne[c:,:n-p*c]),axis=1)
+
+    return np.transpose(Xn_out)
