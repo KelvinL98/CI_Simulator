@@ -64,6 +64,7 @@ class ACE(object):
 
     def process(self, input):
     #https://stackoverflow.com/questions/38453249/is-there-a-matlabs-buffer-equivalent-in-numpy
+
         [out, self.z, self.bufhistory] = self.run_ace(
             input, self.userMap, self.params, self.bufhistory, self.z)
         return out
@@ -78,37 +79,66 @@ class ACE(object):
         #[z;input] is the same as input as far as i can tell as z is null.
 
         #this version has no buffer history!!!! will need to implement
-        print(input,self.framesize,self.params.overlap,bufhistory)
-        [u, z, bufhistory] = buffer( input, self.framesize, p=self.params.overlap)
-        nFrames = u.shape(2)
+
+        #input is urrently all 0.0's, this is obviously not correct
+        #[u, z, bufhistory] = buffer( input, self.framesize, p=self.params.overlap, opt = bufhistory)
+
+        u = buffer( input, self.framesize, p=int(self.params.overlap))
+
+        u = np.array(u)
+
+        _,nFrames = u.shape
+        nFrames = nFrames
+
 
         #apply window
-        u = np.matmul(u, np.matlib.repmat(self.window, 1, nFrames))
+        #print(u[0], u[127], "UUUUU")
+        window = np.matlib.repmat(self.window, 1, nFrames)
+
+
+        u = np.multiply(u, window)
 
         #perform FFT to get freq-time matrix and discard symmetric bins
         #not sure if this is done right, this may not be the same operation as;
             #u((numbins+1):end,:) =[];
-        u = fft(u, self.fftsize)
 
-        for i in range(self.numbins, np.ma.size(u,1)):
-            for j in range(0,np.ma.size(u,1)):
-                u[i][j] = []
+        u = fft(u, self.fftsize,0)
 
+        delete = range(int(self.numbins), np.ma.size(u,0))
+        u = np.delete(u,delete,0)
+        print(u.shape)
+        '''for i in range(int(self.numbins), np.ma.size(u,0)):
 
+            for j in range(0,y):
+
+                indexshift = x * y
+                delete.append(indexshift+j)
+                #np.delete(u,(i,j))
+                #u[i][j] = np.nan
+            x = x + 1
+            print(x)
+        print(len(delete))
+        print(u.shape,"U")
+        u = np.delete(u,delete)
+        print(u.shape, "u")
+        '''
         #calculate envelope using weighted sum of bin powers
-        u = np.sqrt(params.weights * (np.matmul(u, np.conj(u))))
+        u = np.sqrt(np.matmul(params.weights  ,(np.multiply(u, np.conj(u)))))
 
         #apply channel gains
-        u = np.matmul(u, np.matlib.repmat(userMap.GainScale, 1, nFrames))
+        u = np.multiply(u, np.matlib.repmat(userMap.GainScale, 1, nFrames))
 
         #pick N highets values
-        x0 = size(u,1) * (np.arange(0,nFrames-1))
-        [_,index] = np.sort(u,1)
+
+        x0 = np.ma.size(u,1) * (np.arange(0,nFrames-1))
+        index = np.argsort(u,1)
+
         #alternative to matlab list like indexing of u. that doesnt exist in python
         #divide value of offset by 22 (Number of Maxima).
-        offset = np.matlib.repmat(x0, userMap.NMaximaReject,1)
-        for i in range(0, userMap.NMaximaReject):
-                u[i][temp[i]/22] = np.nan
+        print(userMap.NMaximaReject)
+        offset = np.matlib.repmat(x0, int(userMap.NMaximaReject),1)
+        for i in range(0, int(userMap.NMaximaReject)):
+                u[i][offset[i]/22] = np.nan
 
 
         #apply compression
@@ -131,7 +161,6 @@ class ACE(object):
 
 ###helper functions
 def calculate_params(m, self):
-    print(type(m), type(self))
     params = type('param', (object,), {'shiftsize': m.Shift, 'overlap': self.framesize- m.Shift, 'weights': []})
     params.shiftsize = m.Shift
     params.overlap = self.framesize - m.Shift
@@ -169,14 +198,13 @@ def calculate_weights(numbands, numbins):
 
     band_bins = band_bins.reshape(-1,1)
     band_bins = np.insert(band_bins,0,0) #add zero att the front of array so indexing matches matlab code
-    print(band_bins)
+
     w = np.zeros((numbands, int(numbins)))
     bin = 3 #ignore bins 0 and 1
 
     for i in range(1,numbands+1):
         width = band_bins[i]
         setToOne(w, i, width, bin)
-        print(i," yoohoo", band_bins[i], bin)
 
         bin = bin + width
     return [w, band_bins]
@@ -185,7 +213,6 @@ def setToOne(w, i, width, bin):
     r = bin + int(width) - 1
     j = bin
     while j < r:
-        print(bin)
         #-1 offset to match array to matlab array which starts at 1 rather than 0.
         w[i-1][j-1] = 1
         j+=1
@@ -196,9 +223,6 @@ def setToOne(w, i, width, bin):
 def freq_response_equalization(w, window, blocksize, numbands, band_bins):
     [freq_response, _] =  scipy.signal.freqz(np.divide(window,2), 1, blocksize)
     conj = np.conj(freq_response)
-    print(np.asarray(conj), "x")
-    print(np.asarray(freq_response))
-    print(len(conj), len(freq_response))
     power_response = np.multiply(np.asarray(freq_response), np.asarray(conj))
 
     P1 = power_response[0]
@@ -216,7 +240,6 @@ def freq_response_equalization(w, window, blocksize, numbands, band_bins):
             power_gains[i] = P3
 
     for i in range(0, numbands - 1):
-        print(np.asarray(w).shape, "X")
         r = np.asarray(w).shape
         for j in range(0, r[1]):
             w[i][j] = np.divide(w[i][j], power_gains[i])
@@ -295,29 +318,37 @@ def compress(u, base_level, saturation_level, lgf_alpha, sub_mag):
     return [v, sub, sat]
 
 
-def buffer(X, n, p=0):
+def buffer(x, n, p=0, opt=None):
+    if opt not in ('nodelay', None):
+        raise ValueError('{} not implemented'.format(opt))
 
-    import numpy as np
-    d = n - p
-    #print(d)
-    m = len(X)//d
-    c = n//d
-    #print(c)
-    if m * d != len(X):
-        m = m + 1
-    #print(m)
+    n = int(n)
+    p = int(p)
+    i = 0
+    if opt == 'nodelay':
+        # No zeros at array start
+        result = x[:n]
+        i = n
+    else:
+        # Start with `p` zeros
+        result = np.hstack([np.zeros(p), x[:n-p]])
+        i = n-p
+    # Make 2D array, cast to list for .append()
+    result = list(np.expand_dims(result, axis=0))
 
-    Xn = np.zeros(int(d*m))
-    Xn[:len(X)] = X
-    print(Xn,m,d)
-    Xn = np.reshape(Xn,(int(m),int(d)))
-    Xn_out = Xn
-    for i in range(int(c)-1):
-        Xne = np.concatenate((Xn,np.zeros((i+1,d))))
-        Xn_out = np.concatenate((Xn_out, Xne[i+1:,:]),axis=1)
-    #print(Xn_out.shape)
-    if n-d*c>0:
-        Xne = np.concatenate((Xn, np.zeros((c,d))))
-        Xn_out = np.concatenate((Xn_out,Xne[c:,:n-p*c]),axis=1)
+    while i < len(x):
+        # Create next column, add `p` results from last col if given
+        col = x[i:i+(n-p)]
+        if p != 0:
+            col = np.hstack([result[-1][-p:], col])
 
-    return np.transpose(Xn_out)
+        # Append zeros if last row and not length `n`
+        if len(col):
+            col = np.hstack([col, np.zeros(n - len(col))])
+
+        # Combine result with next row
+        result.append(np.array(col))
+        i += (n - p)
+    res = np.vstack(result).T
+    print(res.shape)
+    return np.vstack(result).T

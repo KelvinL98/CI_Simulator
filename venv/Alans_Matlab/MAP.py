@@ -192,6 +192,7 @@ def hardcode(self):
     self.GainScale = np.power(10, (self.Gain/20))
     self.Range = np.subtract(self.MCL,self.THR)
     self.NumberOfBands = 22
+    self.NMaximaReject = self.NumberOfBands - self.NMaxima
     self.ImplantGeneration = "CIC4"
     self.StimulationModeCode = 28
     #base to apex

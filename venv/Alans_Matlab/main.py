@@ -5,7 +5,7 @@ import MAP
 import resample_tfm
 import sounddevice as sd
 #define useful paramters
-gain = 0 # input gain in dB
+gain = 1 # input gain in dB, > 0
 
 #get audio signal
 [stim, fs] = sf.read("tapestry.wav")
@@ -16,12 +16,11 @@ m = MAP.MAP(sampleRate = fs)
 
 #ACE strategy initialisation
 ace = ACE.ACE()
-print(type(m), ">>>")
 ace.initialise(m,fs)
 ace.set_output_mode('matrix')
 
 #run ACE on audio file and get time freq matrix
-
+print(stim, "X")
 out = ace.process(stim)
 
 #resample tf matrix
