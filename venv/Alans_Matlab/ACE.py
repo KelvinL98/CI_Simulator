@@ -80,11 +80,20 @@ class ACE(object):
 
         #this version has no buffer history!!!! will need to implement
 
-        #input is urrently all 0.0's, this is obviously not correct
         #[u, z, bufhistory] = buffer( input, self.framesize, p=self.params.overlap, opt = bufhistory)
-
+        print(self.framesize, "framesize")
+        print(input.shape, "input size")
         u = buffer( input, self.framesize, p=int(self.params.overlap))
+        #for i in range(0, u.shape(1)):
+        shape = u.shape
+        u = u[0:shape[0]][0:shape[1]-1]
+        print(u.shape, "XXXX")
 
+        u = np.delete(u, 2798,1)
+
+
+
+        print(u.shape, "XXXX")
         u = np.array(u)
 
         _,nFrames = u.shape
@@ -129,17 +138,25 @@ class ACE(object):
         u = np.multiply(u, np.matlib.repmat(userMap.GainScale, 1, nFrames))
 
         #pick N highets values
-
-        x0 = np.ma.size(u,1) * (np.arange(0,nFrames-1))
+        print(u.shape, nFrames)
+        x0 = np.matmul(np.ma.size(u,1) , (np.arange(0,nFrames)))
         index = np.argsort(u,1)
 
         #alternative to matlab list like indexing of u. that doesnt exist in python
         #divide value of offset by 22 (Number of Maxima).
-        print(userMap.NMaximaReject)
-        offset = np.matlib.repmat(x0, int(userMap.NMaximaReject),1)
-        for i in range(0, int(userMap.NMaximaReject)):
-                u[i][offset[i]/22] = np.nan
 
+        x0NMaxima = np.matlib.repmat(x0, int(userMap.NMaximaReject),1)
+
+        shape = u.shape
+        print(x0, len(x0), " here")
+        print(np.add(index[0:int(userMap.NMaximaReject)], x0NMaxima).shape, " SHAPE")
+        for i in (np.add(index[0:int(userMap.NMaximaReject)], x0NMaxima)):
+                #print(i, shape[1], shape[0])
+
+                for j in i:
+                    offset = np.floor(j/shape[1]/22)
+
+                    #u[int(offset)][j%shape[1]] = np.nan
 
         #apply compression
         u = compress(u, userMap.BaseLevel, userMap.SaturationLevel, userMap.LGF_Alpha, -1.0E-10)
@@ -333,12 +350,14 @@ def buffer(x, n, p=0, opt=None):
         # Start with `p` zeros
         result = np.hstack([np.zeros(p), x[:n-p]])
         i = n-p
+        print(i, "n-p")
     # Make 2D array, cast to list for .append()
     result = list(np.expand_dims(result, axis=0))
 
     while i < len(x):
         # Create next column, add `p` results from last col if given
         col = x[i:i+(n-p)]
+
         if p != 0:
             col = np.hstack([result[-1][-p:], col])
 
@@ -349,6 +368,8 @@ def buffer(x, n, p=0, opt=None):
         # Combine result with next row
         result.append(np.array(col))
         i += (n - p)
+    print(np.ma.size(result))
     res = np.vstack(result).T
+    print(res[0][0], res[127][2798])
     print(res.shape)
     return np.vstack(result).T
