@@ -117,9 +117,7 @@ def LGF_proc(p, u):
     return [v, sub, sat]
 
 def LGF_Q_diff(log_alpha, Q, BaseLevel, SaturationLevel):
-    print("A")
-    print(log_alpha)
-    print(type(log_alpha))
+
     if type(log_alpha) is int:
         alpha = np.exp(np.float(log_alpha))
     else:
@@ -157,6 +155,7 @@ def calc_LGF_alpha(Q, BaseLevel, SaturationLevel):
     log_alpha = scipy.optimize.fsolve(LGF_Q_diff, interval, xtol = 0, args = (Q, BaseLevel, SaturationLevel))
 
     alpha = np.exp(log_alpha)
+    return alpha
 
 
 
@@ -202,6 +201,7 @@ def hardcode(self):
     self.Shift = np.ceil(16000/900)
     self.AnalysisRate = np.round(16000/self.Shift)
     self.LGF_alpha = calc_LGF_alpha(self.Q, self.BaseLevel, self.SaturationLevel)
+    print(self.LGF_alpha, "OKASODKOASD")
 
 
 

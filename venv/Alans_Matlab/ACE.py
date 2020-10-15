@@ -138,13 +138,13 @@ class ACE(object):
         u = np.multiply(u, np.matlib.repmat(userMap.GainScale, 1, nFrames))
 
         #pick N highets values
-        print(u.shape, nFrames)
-        x0 = np.matmul(np.ma.size(u,1) , (np.arange(0,nFrames)))
+        print(np.ma.size(u,0), np.arange(0,nFrames))
+        x0 = np.multiply(np.ma.size(u,0) , (np.arange(0,nFrames)))
+        print(x0)
         index = np.argsort(u,1)
 
         #alternative to matlab list like indexing of u. that doesnt exist in python
         #divide value of offset by 22 (Number of Maxima).
-
         x0NMaxima = np.matlib.repmat(x0, int(userMap.NMaximaReject),1)
 
         shape = u.shape
@@ -159,7 +159,7 @@ class ACE(object):
                     #u[int(offset)][j%shape[1]] = np.nan
 
         #apply compression
-        u = compress(u, userMap.BaseLevel, userMap.SaturationLevel, userMap.LGF_Alpha, -1.0E-10)
+        u = compress(u, userMap.BaseLevel, userMap.SaturationLevel, userMap.LGF_alpha, -1.0E-10)
 
         #reverse order of rows to match map channel order
         u = np.flip(u,1)
@@ -316,7 +316,11 @@ def FFT_band_bins(num_bands):
 
 def compress(u, base_level, saturation_level, lgf_alpha, sub_mag):
     r = (np.subtract(u,base_level))/(saturation_level - base_level)
-    sat = np.logical(r > 1)
+    print(r)
+    sat = np.greater(r, 1)
+    print(sat)
+
+
     for i in range(0,len(r)):
         if sat[i]:
             r[i] = 1
