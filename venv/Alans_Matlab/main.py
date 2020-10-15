@@ -2,7 +2,7 @@ import numpy as np
 import soundfile as sf
 import ACE
 import MAP
-import resample_tfm
+from resample_tfm import resample_tfm
 import sounddevice as sd
 #define useful paramters
 gain = 1 # input gain in dB, > 0
@@ -24,13 +24,19 @@ print(stim, "X")
 out = ace.process(stim)
 
 #resample tf matrix
-
-tfm = resample_tfm(out.levels, m.analysisRate, fs)
+print(type(out.levels))
+tfm = resample_tfm(out.levels, m.AnalysisRate, fs)
 
 #create sine wave
-t = np.array(arange(0, (np.size(tfm,2))))
-t = np.divide(t/fs)
-freqs = np.mean([m.F_Low, m.F_High], 2)
+t = np.array(range(0, (np.size(tfm,2))))
+t = np.divide(t,fs)
+print(len(m.F_Low))
+freqs = [0] * 22
+for i in range (0,len(m.F_Low)):
+    print(i)
+    freqs[i] =( m.F_Low[i] + m.F_High[i] )/ 2
+#freqs = np.mean([m.F_Low, m.F_High], 2)
+print(t, np.size(t))
 sine_component = np.sin( np.multiply((2 * np.pi * freqs), t))
 
 #modulate tf matrix onto sine wave carriers

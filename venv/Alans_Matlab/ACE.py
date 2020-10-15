@@ -36,7 +36,6 @@ class ACE(object):
         self.userMap = userMap
         self.fs = fs
         if framesize == 0:
-            print("fft", self.fftsize)
             self.framesize = self.fftsize
         else:
             self.framesize = framesize
@@ -64,8 +63,9 @@ class ACE(object):
 
     def process(self, input):
     #https://stackoverflow.com/questions/38453249/is-there-a-matlabs-buffer-equivalent-in-numpy
-
-        [out, self.z, self.bufhistory] = self.run_ace(
+        #no z and bufhisotry being returned
+            #   [out, self.z, self.bufhistory] = self.run_ace(
+        out= self.run_ace(
             input, self.userMap, self.params, self.bufhistory, self.z)
         return out
 
@@ -81,19 +81,16 @@ class ACE(object):
         #this version has no buffer history!!!! will need to implement
 
         #[u, z, bufhistory] = buffer( input, self.framesize, p=self.params.overlap, opt = bufhistory)
-        print(self.framesize, "framesize")
-        print(input.shape, "input size")
+
         u = buffer( input, self.framesize, p=int(self.params.overlap))
         #for i in range(0, u.shape(1)):
         shape = u.shape
         u = u[0:shape[0]][0:shape[1]-1]
-        print(u.shape, "XXXX")
+
 
         u = np.delete(u, 2798,1)
 
 
-
-        print(u.shape, "XXXX")
         u = np.array(u)
 
         _,nFrames = u.shape
@@ -115,7 +112,7 @@ class ACE(object):
 
         delete = range(int(self.numbins), np.ma.size(u,0))
         u = np.delete(u,delete,0)
-        print(u.shape)
+
         '''for i in range(int(self.numbins), np.ma.size(u,0)):
 
             for j in range(0,y):
@@ -138,9 +135,8 @@ class ACE(object):
         u = np.multiply(u, np.matlib.repmat(userMap.GainScale, 1, nFrames))
 
         #pick N highets values
-        print(np.ma.size(u,0), np.arange(0,nFrames))
         x0 = np.multiply(np.ma.size(u,0) , (np.arange(0,nFrames)))
-        print(x0)
+
         index = np.argsort(u,1)
 
         #alternative to matlab list like indexing of u. that doesnt exist in python
@@ -148,8 +144,6 @@ class ACE(object):
         x0NMaxima = np.matlib.repmat(x0, int(userMap.NMaximaReject),1)
 
         shape = u.shape
-        print(x0, len(x0), " here")
-        print(np.add(index[0:int(userMap.NMaximaReject)], x0NMaxima).shape, " SHAPE")
         for i in (np.add(index[0:int(userMap.NMaximaReject)], x0NMaxima)):
                 #print(i, shape[1], shape[0])
 
@@ -167,15 +161,19 @@ class ACE(object):
         #missing stuff for vector output
 
         #electrodes vector, which electrode isbeing fired
+        #create an object with arbritrary attributes
+            #https://stackoverflow.com/questions/2280334/shortest-way-of-creating-an-object-with-arbitrary-attributes-in-python
+        out = type('', (), {})()
         out.electrodes = (np.matlib.repmat(userMap.ChannelOrder,1, nFrames))
 
         #output vector
         u = np.nan_to_num(u, nan = -1.0E-10)
         u[u<0] = 0
         out.levels = u
+        print(u.shape[1])
 
-        out.periods = repmat(np.divide(np.ones(u.shape(1), 1), (np.multiply(userMap.AnalysisRate, userMap.NMaxima))),1, nFrames)
-
+        out.periods = np.matlib.repmat(np.divide(np.ones((u.shape[1], 1)), (np.multiply(userMap.AnalysisRate, userMap.NMaxima))),1, nFrames)
+        return out
 ###helper functions
 def calculate_params(m, self):
     params = type('param', (object,), {'shiftsize': m.Shift, 'overlap': self.framesize- m.Shift, 'weights': []})
@@ -316,25 +314,36 @@ def FFT_band_bins(num_bands):
 
 def compress(u, base_level, saturation_level, lgf_alpha, sub_mag):
     r = (np.subtract(u,base_level))/(saturation_level - base_level)
-    print(r)
-    sat = np.greater(r, 1)
-    print(sat)
+    print(r.shape)
+    print("kk")
+    ##sat = (r > 1)
+    sat = np.zeros(r.shape)
+    row, col = r.shape
+    print(row, col)
 
+    for i in range(0, row):
+        for j in range(0, col):
 
-    for i in range(0,len(r)):
-        if sat[i]:
-            r[i] = 1
+            if r[i][j] > 1:
+                r[i][j] = 1
+                sat[i][j] = 1
 
-    sub = np.logical(r < 0)
-    for i in range(0,len(r)):
-        if sub[i]:
-            r[i] = 0;
+    #r < 0
 
-    v = log(1 + lgf_alpha * r) / log(1 + lgf_alpha);
+    sub = np.zeros(r.shape)
 
-    for i in range(0,len(v)):
-        if sub[i]:
-            v[i] = sub_mag
+    for i in range(0,row):
+        for j in range(0,col):
+            if r[i][j] < 0:
+                r[i][j] = 0
+                sat[i][j] = 1
+
+    v = (np.log(1 + lgf_alpha[0] * r) / np.log(1 + lgf_alpha[0]))
+    print(v )
+    for i in range(0,row):
+        for j in range(0,col):
+            if sub[i][j] == 1:
+                v[i][j] = sub_mag
 
     return [v, sub, sat]
 
@@ -354,7 +363,7 @@ def buffer(x, n, p=0, opt=None):
         # Start with `p` zeros
         result = np.hstack([np.zeros(p), x[:n-p]])
         i = n-p
-        print(i, "n-p")
+
     # Make 2D array, cast to list for .append()
     result = list(np.expand_dims(result, axis=0))
 
@@ -372,8 +381,5 @@ def buffer(x, n, p=0, opt=None):
         # Combine result with next row
         result.append(np.array(col))
         i += (n - p)
-    print(np.ma.size(result))
     res = np.vstack(result).T
-    print(res[0][0], res[127][2798])
-    print(res.shape)
     return np.vstack(result).T
