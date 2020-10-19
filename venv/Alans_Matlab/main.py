@@ -47,14 +47,14 @@ sine_component = np.array(sine_component)
 #modulate tf matrix onto sine wave carriers
 mod_tfm = np.multiply(sine_component, tfm)
 
-print(np.size(mod_tfm,0))
+
 # sum bands  together to create the audio signal
-voc_stim = [] * np.size(mod_tfm,0)
-print(voc_stim.shape)
+voc_stim = []
+mod_tfm = mod_tfm.T
 for i in range(0, np.size(mod_tfm,0)):
-    voc_stim[i] = np.sum(mod_tfm[i])
+    voc_stim.append(np.sum(mod_tfm[i]))
 print(voc_stim)
-voc_stim.reshape(-1,1)
+#voc_stim.reshape(-1,1)
 #play
 #sd.play(voc_stim, fs)
 #status = sd.wait()
