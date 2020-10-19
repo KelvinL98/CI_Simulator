@@ -135,8 +135,7 @@ def LGF_Q(alpha, base_level, sat_level):
     input_level = sat_level/(np.sqrt(10))
     p = LGF_proc(p, input_level)
     q = np.multiply(100,(np.subtract(1,p)))
-    print("Q")
-    print(q)
+
     return q
 
 def calc_LGF_alpha(Q, BaseLevel, SaturationLevel):
@@ -201,9 +200,6 @@ def hardcode(self):
     self.Shift = np.ceil(16000/900)
     self.AnalysisRate = np.round(16000/self.Shift)
     self.LGF_alpha = calc_LGF_alpha(self.Q, self.BaseLevel, self.SaturationLevel)
-    print(self.LGF_alpha, "OKASODKOASD")
-
-
 
 
 

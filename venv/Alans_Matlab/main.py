@@ -20,34 +20,41 @@ ace.initialise(m,fs)
 ace.set_output_mode('matrix')
 
 #run ACE on audio file and get time freq matrix
-print(stim, "X")
+
 out = ace.process(stim)
 
 #resample tf matrix
-print(type(out.levels))
 tfm = resample_tfm(out.levels, m.AnalysisRate, fs)
 
 #create sine wave
-t = np.array(range(0, (np.size(tfm,2))))
+
+print(np.size(tfm,1))
+t = np.array(range(0, (np.size(tfm,1))))
+
 t = np.divide(t,fs)
-print(len(m.F_Low))
 freqs = [0] * 22
 for i in range (0,len(m.F_Low)):
-    print(i)
+
     freqs[i] =( m.F_Low[i] + m.F_High[i] )/ 2
 #freqs = np.mean([m.F_Low, m.F_High], 2)
-print(t, np.size(t))
-sine_component = np.sin( np.multiply((2 * np.pi * freqs), t))
 
+sine_component = []
+for i in range(0, len(freqs)):
+    curr = np.sin(2 * np.pi * t * freqs[i])
+    sine_component.append(curr)
+
+sine_component = np.array(sine_component)
 #modulate tf matrix onto sine wave carriers
+mod_tfm = np.multiply(sine_component, tfm)
 
-mod_tfm = np.matmul(sine_component, tfm)
-
+print(np.size(mod_tfm,0))
 # sum bands  together to create the audio signal
-voc_stim = np.sum(mod_tfm)
+voc_stim = [] * np.size(mod_tfm,0)
+print(voc_stim.shape)
+for i in range(0, np.size(mod_tfm,0)):
+    voc_stim[i] = np.sum(mod_tfm[i])
+print(voc_stim)
 voc_stim.reshape(-1,1)
-
-
 #play
 #sd.play(voc_stim, fs)
 #status = sd.wait()

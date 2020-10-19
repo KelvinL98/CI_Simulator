@@ -314,12 +314,10 @@ def FFT_band_bins(num_bands):
 
 def compress(u, base_level, saturation_level, lgf_alpha, sub_mag):
     r = (np.subtract(u,base_level))/(saturation_level - base_level)
-    print(r.shape)
-    print("kk")
+
     ##sat = (r > 1)
     sat = np.zeros(r.shape)
     row, col = r.shape
-    print(row, col)
 
     for i in range(0, row):
         for j in range(0, col):
@@ -339,7 +337,7 @@ def compress(u, base_level, saturation_level, lgf_alpha, sub_mag):
                 sat[i][j] = 1
 
     v = (np.log(1 + lgf_alpha[0] * r) / np.log(1 + lgf_alpha[0]))
-    print(v )
+
     for i in range(0,row):
         for j in range(0,col):
             if sub[i][j] == 1:
