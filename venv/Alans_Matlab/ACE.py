@@ -131,7 +131,8 @@ class ACE(object):
         #calculate envelope using weighted sum of bin powers
 
             #u is correct at this point
-
+        np.savetxt("u.csv", u, delimiter=",")
+        print(np.multiply(u, np.conj(u)))
         u = np.sqrt(np.matmul(params.weights  ,(np.multiply(u, np.conj(u)))))
 
         u = u.astype(np.double)
@@ -201,7 +202,7 @@ def calculate_params(m, self):
 
     #create weights matrix
     [params.weights, band_bins] = calculate_weights(m.NumberOfBands, self.numbins)
-    print(params.weights[20], "params")
+
 
     #frequency response equalisation
     params.weights = freq_response_equalization(params.weights, self.window, self.framesize, m.NumberOfBands, band_bins)
