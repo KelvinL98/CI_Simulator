@@ -4,6 +4,8 @@ import ACE
 import MAP
 from resample_tfm import resample_tfm
 import sounddevice as sd
+import matplotlib
+import matplotlib.pyplot as plt
 #define useful paramters
 gain = 1 # input gain in dB, > 0
 
@@ -22,10 +24,10 @@ ace.set_output_mode('matrix')
 #run ACE on audio file and get time freq matrix
 
 out = ace.process(stim)
-
+print(out)
 #resample tf matrix
 tfm = resample_tfm(out.levels, m.AnalysisRate, fs)
-
+print(np.max(tfm), np.min(tfm))
 #create sine wave
 
 print(np.size(tfm,1))
@@ -43,17 +45,26 @@ for i in range(0, len(freqs)):
     curr = np.sin(2 * np.pi * t * freqs[i])
     sine_component.append(curr)
 
-sine_component = np.array(sine_component)
+
+sine_component = np.asarray(sine_component)
+np.savetxt('sine.csv', sine_component, delimiter=',')
+
+#print(tfm)
 #modulate tf matrix onto sine wave carriers
 mod_tfm = np.multiply(sine_component, tfm)
 
-
-# sum bands  together to create the audio signal
+#print(mod_tfm)
+#sum bands  together to create the audio signal
 voc_stim = []
 mod_tfm = mod_tfm.T
+
+print(np.min(mod_tfm), np.max(mod_tfm))
+
 for i in range(0, np.size(mod_tfm,0)):
     voc_stim.append(np.sum(mod_tfm[i]))
-print(voc_stim)
+
+voc_stim = np.divide(voc_stim, 12)
+
 #voc_stim.reshape(-1,1)
 #play
 #sd.play(voc_stim, fs)

@@ -129,15 +129,21 @@ class ACE(object):
         print(u.shape, "u")
         '''
         #calculate envelope using weighted sum of bin powers
+
+            #u is correct at this point
+
         u = np.sqrt(np.matmul(params.weights  ,(np.multiply(u, np.conj(u)))))
+
+        u = u.astype(np.double)
 
         #apply channel gains
         u = np.multiply(u, np.matlib.repmat(userMap.GainScale, 1, nFrames))
 
         #pick N highets values
+            #pick higest maxima, set rest to 0
         x0 = np.multiply(np.ma.size(u,0) , (np.arange(0,nFrames)))
-
-        index = np.argsort(u,1)
+        print(np.size(u,0), "size")
+        index = np.argsort(u,0)
 
         #alternative to matlab list like indexing of u. that doesnt exist in python
         #divide value of offset by 22 (Number of Maxima).
@@ -152,11 +158,31 @@ class ACE(object):
 
                     #u[int(offset)][j%shape[1]] = np.nan
 
+        new_u  = np.empty(shape)
+        new_u[:] = np.nan
+        print(shape[1], "shape", userMap.NMaxima)
+        print(np.shape(index))
+        print(index[1][2])
+        #go by column, for each column select NMaxima highest values.
+        for i in range(0,shape[1]):
+            for j in range(0, int(userMap.NMaxima + 1)):
+                new_u[index[j][i]][i] = u[index[j][i]][i]
+        print(np.flip(u,1).shape)
+        np.savetxt("maxima.csv", new_u, delimiter=",")
         #apply compression
-        u = compress(u, userMap.BaseLevel, userMap.SaturationLevel, userMap.LGF_alpha, -1.0E-10)
+            #compress currently resizes 3 extra dimensions for some reason, from (22,2798) to (3,22,2798)
+            #this is due to me returning [v,sub,sat] rather than just u. Sub and sat arent used and can be removed
+            #IT HAS NOT BEEN REMOVED in this iteration due to later calls in the code which adjust for this.
+        u = compress(new_u, userMap.BaseLevel, userMap.SaturationLevel, userMap.LGF_alpha, -1.0E-10)
 
         #reverse order of rows to match map channel order
+            #matlab code uses the userMap.ChannelOrder of the patient,
+            #  in this case it was simply reversing the order
+
+        np.savetxt("preflip.csv", u[0], delimiter=",")
         u = np.flip(u,1)
+        np.savetxt("postflip.csv", u[0], delimiter=",")
+       # print(u, u.shape)
 
         #missing stuff for vector output
 
@@ -170,7 +196,8 @@ class ACE(object):
         u = np.nan_to_num(u, nan = -1.0E-10)
         u[u<0] = 0
         out.levels = u
-        print(u.shape[1])
+        print(u.shape)
+        print(type(u[2][0][0]))
 
         out.periods = np.matlib.repmat(np.divide(np.ones((u.shape[1], 1)), (np.multiply(userMap.AnalysisRate, userMap.NMaxima))),1, nFrames)
         return out

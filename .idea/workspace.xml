@@ -14,7 +14,7 @@
     <SUITE FILE_PATH="coverage/CI_Simulator$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1597557068901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Bandpass" />
     <SUITE FILE_PATH="coverage/CI_Simulator$MAP.coverage" NAME="MAP Coverage Results" MODIFIED="1599175237159" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Alans_Matlab" />
     <SUITE FILE_PATH="coverage/CI_Simulator$test.coverage" NAME="test Coverage Results" MODIFIED="1601343616185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Simple_visualiser" />
-    <SUITE FILE_PATH="coverage/CI_Simulator$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1603107115924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Alans_Matlab" />
+    <SUITE FILE_PATH="coverage/CI_Simulator$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1603711518185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Alans_Matlab" />
     <SUITE FILE_PATH="coverage/CI_Simulator$CarrierGen.coverage" NAME="CarrierGen Coverage Results" MODIFIED="1597560776467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/CarrierModulation" />
     <SUITE FILE_PATH="coverage/CI_Simulator$buffer.coverage" NAME="buffer Coverage Results" MODIFIED="1601881059980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Alans_Matlab" />
     <SUITE FILE_PATH="coverage/CI_Simulator$main.coverage" NAME="main Coverage Results" MODIFIED="1599799001472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Simple_visualiser" />
@@ -40,8 +40,8 @@
       <file leaf-file-name="resample_tfm.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/resample_tfm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="527">
+              <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -52,8 +52,8 @@
       <file leaf-file-name="MAP.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/MAP.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="202" selection-start-line="202" selection-end-line="202" />
+            <state relative-caret-position="2499">
+              <caret line="152" column="45" selection-start-line="152" selection-start-column="45" selection-end-line="152" selection-end-column="45" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -61,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+            <state relative-caret-position="629">
+              <caret line="64" selection-start-line="64" selection-end-line="64" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -76,8 +76,8 @@
       <file leaf-file-name="soundfile.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/soundfile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="428" selection-start-line="428" selection-end-line="428" />
+            <state relative-caret-position="23341">
+              <caret line="1376" selection-start-line="1376" selection-end-line="1376" />
             </state>
           </provider>
         </entry>
@@ -85,7 +85,7 @@
       <file leaf-file-name="fromnumeric.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/fromnumeric.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
+            <state relative-caret-position="52802">
               <caret line="3120" selection-start-line="3120" selection-end-line="3120" />
             </state>
           </provider>
@@ -94,20 +94,34 @@
       <file leaf-file-name="_methods.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/_methods.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
+            <state relative-caret-position="782">
               <caret line="56" selection-start-line="56" selection-end-line="56" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ACE.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ACE.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/ACE.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="126" column="26" lean-forward="true" selection-start-line="126" selection-start-column="26" selection-end-line="126" selection-end-column="26" />
+            <state relative-caret-position="181">
+              <caret line="133" column="37" selection-start-line="133" selection-start-column="37" selection-end-line="133" selection-end-column="37" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/numpy/__init__.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="maxima.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/maxima.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="943" selection-start-column="943" selection-end-column="943" />
             </state>
           </provider>
         </entry>
@@ -115,20 +129,8 @@
       <file leaf-file-name="numeric.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/numeric.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
+            <state relative-caret-position="3128">
               <caret line="206" selection-start-line="206" selection-end-line="206" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/Simple_visualiser/test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -139,15 +141,12 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>h</find>
-      <find>set_window</find>
-      <find>concat</find>
-      <find>typeError</find>
       <find>run</find>
       <find>type</find>
       <find>offset</find>
@@ -159,7 +158,6 @@
       <find>buffer</find>
       <find>compress</find>
       <find>Nmaxima</find>
-      <find>process</find>
       <find>LGF_ALpha</find>
       <find>userMap</find>
       <find>LGF_Al</find>
@@ -172,8 +170,13 @@
       <find>analy</find>
       <find>out.levels</find>
       <find>resample</find>
+      <find>levels</find>
       <find>resample_tfm</find>
+      <find>write</find>
+      <find>csv</find>
+      <find>u</find>
       <find>print</find>
+      <find>process</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -187,7 +190,6 @@
         <option value="$USER_HOME$/Desktop/Thesis resources/BP Filter/BP.ui" />
         <option value="$USER_HOME$/Desktop/Thesis resources/BP Filter/BP.py" />
         <option value="$PROJECT_DIR$/venv/CarrierModulation/AmplitudeMod.py" />
-        <option value="$PROJECT_DIR$/venv/Simple_visualiser/main.py" />
         <option value="$PROJECT_DIR$/venv/CarrierModulation/CarrierGen.py" />
         <option value="$PROJECT_DIR$/venv/CarrierModulation/SineVocode.py" />
         <option value="$PROJECT_DIR$/venv/Bandpass/__init__.py" />
@@ -196,10 +198,12 @@
         <option value="$PROJECT_DIR$/venv/Alans_Matlab/Strategy.py" />
         <option value="$PROJECT_DIR$/venv/Simple_visualiser/test.py" />
         <option value="$PROJECT_DIR$/venv/Alans_Matlab/buffer.py" />
-        <option value="$PROJECT_DIR$/venv/Alans_Matlab/ACE.py" />
         <option value="$PROJECT_DIR$/venv/Alans_Matlab/MAP.py" />
+        <option value="$PROJECT_DIR$/venv/Alans_Matlab/test.js" />
         <option value="$PROJECT_DIR$/venv/Alans_Matlab/resample_tfm.py" />
+        <option value="$PROJECT_DIR$/venv/Simple_visualiser/main.py" />
         <option value="$PROJECT_DIR$/venv/Alans_Matlab/main.py" />
+        <option value="$PROJECT_DIR$/venv/Alans_Matlab/ACE.py" />
       </list>
     </option>
   </component>
@@ -223,6 +227,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -253,17 +258,10 @@
               <item name="venv" type="462c0819:PsiDirectoryNode" />
               <item name="CarrierModulation" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="CI_Simulator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CI_Simulator" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-              <item name="Simple_visualiser" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -271,7 +269,7 @@
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Thesis resources" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -283,8 +281,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Kelvin Liu\PycharmProjects\CI_Simulator\venv\Simple_visualiser" />
       <recent name="C:\Users\Kelvin Liu\PycharmProjects\CI_Simulator\venv\Alans_Matlab" />
+      <recent name="C:\Users\Kelvin Liu\PycharmProjects\CI_Simulator\venv\Simple_visualiser" />
       <recent name="C:\Users\Kelvin Liu\PycharmProjects\CI_Simulator\venv\CarrierModulation" />
       <recent name="C:\Users\Kelvin Liu\PycharmProjects\CI_Simulator\venv\Bandpass" />
     </key>
@@ -481,9 +479,9 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3274648" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32922536" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49716598" visible="true" weight="0.31161973" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49716598" visible="true" weight="0.27640846" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3309859" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25910932" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2631579" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.32955465" />
       <window_info anchor="right" x="0" y="11" width="1281" height="667" id="SciView" order="4" sideWeight="0.484375" weight="0.2340081" />
@@ -500,29 +498,29 @@
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="8" weight="0.32922536" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49716598" visible="true" weight="0.31161973" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25506073" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32857144" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3274648" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49716598" visible="true" weight="0.31161973" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32922536" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3996479" />
       <window_info anchor="right" x="0" y="0" width="273" height="504" id="Documentation" order="5" sideWeight="0.515625" side_tool="true" weight="0.2340081" />
       <window_info anchor="right" id="Database" order="3" weight="0.32955465" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.3309859" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.502834" side_tool="true" weight="0.32394367" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3274648" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" x="0" y="11" width="1281" height="667" id="SciView" order="4" sideWeight="0.484375" weight="0.2340081" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32922536" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32922536" />
+      <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -566,7 +564,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/venv/CarrierModulation/SineVocode.py</url>
+          <url />
           <line>23</line>
         </line-breakpoint>
       </breakpoints>
@@ -574,41 +572,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/venv/CarrierModulation/CarrierGen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2193">
-          <caret line="129" column="14" lean-forward="true" selection-start-line="129" selection-start-column="14" selection-end-line="129" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/CarrierModulation/AmplitudeModSample.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Simple_visualiser/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1853">
-          <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Bandpass/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1513">
-          <caret line="89" column="33" lean-forward="true" selection-start-line="89" selection-start-column="33" selection-end-line="89" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/CarrierModulation/CarrierGen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1870">
-          <caret line="110" column="17" lean-forward="true" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/CarrierModulation/AmplitudeModSample.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -791,13 +754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Simple_visualiser/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1057">
-          <caret line="109" selection-start-line="109" selection-end-line="109" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/CarrierModulation/CarrierGen.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -840,9 +796,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -857,9 +810,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="44" column="1" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -884,38 +834,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/numeric.py">
+    <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/tfm.csv">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="136">
+          <caret column="809" selection-start-column="809" selection-end-column="809" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/MatlabSampleInd.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret column="1944" lean-forward="true" selection-start-column="1944" selection-end-column="1944" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/numpy/lib/npyio.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
+          <caret line="1376" selection-start-line="1376" selection-end-line="1376" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Simple_visualiser/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-561">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/numeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3128">
           <caret line="206" selection-start-line="206" selection-end-line="206" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/_methods.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="56" selection-start-line="56" selection-end-line="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/fromnumeric.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="3120" selection-start-line="3120" selection-end-line="3120" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/soundfile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="428" selection-start-line="428" selection-end-line="428" />
+        <state relative-caret-position="23341">
+          <caret line="1376" selection-start-line="1376" selection-end-line="1376" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/fromnumeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52802">
+          <caret line="3120" selection-start-line="3120" selection-end-line="3120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/_methods.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/maxima.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="943" selection-start-column="943" selection-end-column="943" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/MAP.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="202" selection-start-line="202" selection-end-line="202" />
+        <state relative-caret-position="2499">
+          <caret line="152" column="45" selection-start-line="152" selection-start-column="45" selection-end-line="152" selection-end-column="45" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -924,18 +909,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/resample_tfm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/ACE.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="126" column="26" lean-forward="true" selection-start-line="126" selection-start-column="26" selection-end-line="126" selection-end-column="26" />
+        <state relative-caret-position="527">
+          <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -944,8 +919,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+        <state relative-caret-position="629">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/numpy/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/ACE.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="133" column="37" selection-start-line="133" selection-start-column="37" selection-end-line="133" selection-end-column="37" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
