@@ -142,7 +142,6 @@ class ACE(object):
         #pick N highets values
             #pick higest maxima, set rest to 0
         x0 = np.multiply(np.ma.size(u,0) , (np.arange(0,nFrames)))
-        print(np.size(u,0), "size")
         index = np.argsort(u,0)
 
         #alternative to matlab list like indexing of u. that doesnt exist in python
@@ -160,15 +159,10 @@ class ACE(object):
 
         new_u  = np.empty(shape)
         new_u[:] = np.nan
-        print(shape[1], "shape", userMap.NMaxima)
-        print(np.shape(index))
-        print(index[1][2])
         #go by column, for each column select NMaxima highest values.
         for i in range(0,shape[1]):
             for j in range(0, int(userMap.NMaxima + 1)):
                 new_u[index[j][i]][i] = u[index[j][i]][i]
-        print(np.flip(u,1).shape)
-        np.savetxt("maxima.csv", new_u, delimiter=",")
         #apply compression
             #compress currently resizes 3 extra dimensions for some reason, from (22,2798) to (3,22,2798)
             #this is due to me returning [v,sub,sat] rather than just u. Sub and sat arent used and can be removed
@@ -196,8 +190,6 @@ class ACE(object):
         u = np.nan_to_num(u, nan = -1.0E-10)
         u[u<0] = 0
         out.levels = u
-        print(u.shape)
-        print(type(u[2][0][0]))
 
         out.periods = np.matlib.repmat(np.divide(np.ones((u.shape[1], 1)), (np.multiply(userMap.AnalysisRate, userMap.NMaxima))),1, nFrames)
         return out
@@ -209,7 +201,9 @@ def calculate_params(m, self):
 
     #create weights matrix
     [params.weights, band_bins] = calculate_weights(m.NumberOfBands, self.numbins)
+    print(params.weights[21], "params")
 
+    np.savetxt("params.csv", np.asarray(params), delimiter=",")
     #frequency response equalisation
     params.weights = freq_response_equalization(params.weights, self.window, self.framesize, m.NumberOfBands, band_bins)
 
