@@ -130,11 +130,11 @@ class ACE(object):
         '''
         #calculate envelope using weighted sum of bin powers
 
-            #u is correct at this point
-        np.savetxt("u.csv", u, delimiter=",")
-        print(np.multiply(u, np.conj(u)))
-        u = np.sqrt(np.matmul(params.weights  ,(np.multiply(u, np.conj(u)))))
+            #u is off by 1 decimal place too small
+        u = u * 10
 
+        u = np.sqrt(np.matmul(params.weights  ,(np.multiply(u, np.conj(u)))))
+        np.savetxt("params.csv", params.weights , delimiter=",")
         u = u.astype(np.double)
 
         #apply channel gains
@@ -258,9 +258,10 @@ def setToOne(w, i, width, bin):
 
 def freq_response_equalization(w, window, blocksize, numbands, band_bins):
     [freq_response, _] =  scipy.signal.freqz(np.divide(window,2), 1, blocksize)
-    conj = np.conj(freq_response)
-    power_response = np.multiply(np.asarray(freq_response), np.asarray(conj))
-
+    print(freq_response)
+    freq_conj = np.conj(freq_response)
+    power_response = np.multiply(np.asarray(freq_response), np.asarray(freq_conj))
+   # print(power_response)
     P1 = power_response[0]
     P2 = np.multiply(2, power_response[1])
     P3 = np.add(power_response[0], (np.multiply(2, power_response[2])))
