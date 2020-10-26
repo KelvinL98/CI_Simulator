@@ -201,9 +201,8 @@ def calculate_params(m, self):
 
     #create weights matrix
     [params.weights, band_bins] = calculate_weights(m.NumberOfBands, self.numbins)
-    print(params.weights[21], "params")
+    print(params.weights[20], "params")
 
-    np.savetxt("params.csv", np.asarray(params), delimiter=",")
     #frequency response equalisation
     params.weights = freq_response_equalization(params.weights, self.window, self.framesize, m.NumberOfBands, band_bins)
 
@@ -248,7 +247,7 @@ def calculate_weights(numbands, numbins):
 def setToOne(w, i, width, bin):
     r = bin + int(width) - 1
     j = bin
-    while j < r:
+    while j <= r:
         #-1 offset to match array to matlab array which starts at 1 rather than 0.
         w[i-1][j-1] = 1
         j+=1
