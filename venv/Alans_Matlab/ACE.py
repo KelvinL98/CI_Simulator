@@ -45,6 +45,7 @@ class ACE(object):
         self.numbins = self.fftsize/2 + 1
 
         self.window = set_window(self.windowtype, self.framesize)
+        print(self.windowtype, "<w-type", self.framesize, "<fsize")
         #hardcoded
         #self.userMap.set_stim_orer(self.stimorder)
         self.params = calculate_params(self.userMap, self)
@@ -134,7 +135,7 @@ class ACE(object):
         u = u * 10
 
         u = np.sqrt(np.matmul(params.weights  ,(np.multiply(u, np.conj(u)))))
-        np.savetxt("params.csv", params.weights , delimiter=",")
+        np.savetxt("params.csv", params.weights, delimiter=",")
         u = u.astype(np.double)
 
         #apply channel gains
@@ -144,30 +145,24 @@ class ACE(object):
             #pick higest maxima, set rest to 0
         x0 = np.multiply(np.ma.size(u,0) , (np.arange(0,nFrames)))
         index = np.argsort(u,0)
-
+        index = index[::-1]
         #alternative to matlab list like indexing of u. that doesnt exist in python
         #divide value of offset by 22 (Number of Maxima).
         x0NMaxima = np.matlib.repmat(x0, int(userMap.NMaximaReject),1)
 
         shape = u.shape
-        for i in (np.add(index[0:int(userMap.NMaximaReject)], x0NMaxima)):
-                #print(i, shape[1], shape[0])
-
-                for j in i:
-                    offset = np.floor(j/shape[1]/22)
-
-                    #u[int(offset)][j%shape[1]] = np.nan
 
         new_u  = np.empty(shape)
         new_u[:] = np.nan
         #go by column, for each column select NMaxima highest values.
         for i in range(0,shape[1]):
-            for j in range(0, int(userMap.NMaxima + 1)):
+            for j in range(0, int(userMap.NMaxima)):
                 new_u[index[j][i]][i] = u[index[j][i]][i]
+
         #apply compression
             #compress currently resizes 3 extra dimensions for some reason, from (22,2798) to (3,22,2798)
             #this is due to me returning [v,sub,sat] rather than just u. Sub and sat arent used and can be removed
-            #IT HAS NOT BEEN REMOVED in this iteration due to later calls in the code which adjust for this.
+
         u = compress(new_u, userMap.BaseLevel, userMap.SaturationLevel, userMap.LGF_alpha, -1.0E-10)
 
         #reverse order of rows to match map channel order
@@ -257,11 +252,14 @@ def setToOne(w, i, width, bin):
 
 
 def freq_response_equalization(w, window, blocksize, numbands, band_bins):
-    [_,freq_response] =  scipy.signal.freqz((window/2), 1, blocksize)
+    [throwaway,freq_response] =  scipy.signal.freqz((window/2), 1, blocksize,
+                                                    include_nyquist= True)
+
     print(freq_response, np.shape(freq_response))
+    np.savetxt("freqresponse.csv", freq_response, delimiter=",")
     freq_conj = np.conj(freq_response)
     power_response = np.multiply(np.asarray(freq_response), np.asarray(freq_conj))
-   # print(power_response)
+    np.savetxt("powerresponse.csv", power_response, delimiter=",")
     P1 = power_response[0]
     P2 = np.multiply(2, power_response[1])
     P3 = np.add(power_response[0], (np.multiply(2, power_response[2])))
@@ -276,7 +274,7 @@ def freq_response_equalization(w, window, blocksize, numbands, band_bins):
         else:
             power_gains[i] = P3
 
-    for i in range(0, numbands - 1):
+    for i in range(0, numbands):
         r = np.asarray(w).shape
         for j in range(0, r[1]):
             w[i][j] = np.divide(w[i][j], power_gains[i])
