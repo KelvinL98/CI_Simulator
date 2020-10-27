@@ -199,7 +199,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="948" />
     <option name="y" value="-12" />
     <option name="width" value="984" />
@@ -549,7 +549,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/venv/CarrierModulation/SineVocode.py</url>
+          <url />
           <line>23</line>
         </line-breakpoint>
       </breakpoints>
