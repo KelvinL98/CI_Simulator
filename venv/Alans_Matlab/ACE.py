@@ -257,8 +257,8 @@ def setToOne(w, i, width, bin):
 
 
 def freq_response_equalization(w, window, blocksize, numbands, band_bins):
-    [freq_response, _] =  scipy.signal.freqz(np.divide(window,2), 1, blocksize)
-    print(freq_response)
+    [_,freq_response] =  scipy.signal.freqz((window/2), 1, blocksize)
+    print(freq_response, np.shape(freq_response))
     freq_conj = np.conj(freq_response)
     power_response = np.multiply(np.asarray(freq_response), np.asarray(freq_conj))
    # print(power_response)

@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 gain = 1 # input gain in dB, > 0
 
 #get audio signal
-[stim, fs] = sf.read("tapestry.wav")
+[stim, fs] = sf.read("DORMAN_input.wav")
 stim = np.multiply(np.power(gain/1, 10), stim)
 
 ##load map
@@ -34,6 +34,7 @@ print(np.size(tfm,1))
 t = np.array(range(0, (np.size(tfm,1))))
 
 t = np.divide(t,fs)
+#numbands = 22
 freqs = [0] * 22
 for i in range (0,len(m.F_Low)):
 
@@ -63,6 +64,7 @@ print(np.min(mod_tfm), np.max(mod_tfm))
 for i in range(0, np.size(mod_tfm,0)):
     voc_stim.append(np.sum(mod_tfm[i]))
 
+    #too big, so divided by 12 to 'normalise' values
 voc_stim = np.divide(voc_stim, 12)
 
 #voc_stim.reshape(-1,1)

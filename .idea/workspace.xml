@@ -14,7 +14,7 @@
     <SUITE FILE_PATH="coverage/CI_Simulator$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1597557068901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Bandpass" />
     <SUITE FILE_PATH="coverage/CI_Simulator$MAP.coverage" NAME="MAP Coverage Results" MODIFIED="1599175237159" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Alans_Matlab" />
     <SUITE FILE_PATH="coverage/CI_Simulator$test.coverage" NAME="test Coverage Results" MODIFIED="1601343616185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Simple_visualiser" />
-    <SUITE FILE_PATH="coverage/CI_Simulator$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1603718728248" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Alans_Matlab" />
+    <SUITE FILE_PATH="coverage/CI_Simulator$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1603764512094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Alans_Matlab" />
     <SUITE FILE_PATH="coverage/CI_Simulator$CarrierGen.coverage" NAME="CarrierGen Coverage Results" MODIFIED="1597560776467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/CarrierModulation" />
     <SUITE FILE_PATH="coverage/CI_Simulator$buffer.coverage" NAME="buffer Coverage Results" MODIFIED="1601881059980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Alans_Matlab" />
     <SUITE FILE_PATH="coverage/CI_Simulator$main.coverage" NAME="main Coverage Results" MODIFIED="1599799001472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Simple_visualiser" />
@@ -52,8 +52,8 @@
       <file leaf-file-name="MAP.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/MAP.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2499">
-              <caret line="152" column="45" selection-start-line="152" selection-start-column="45" selection-end-line="152" selection-end-column="45" />
+            <state relative-caret-position="-1870">
+              <caret line="76" column="31" selection-start-line="76" selection-start-column="31" selection-end-line="76" selection-end-column="31" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -61,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="64" selection-start-line="64" selection-end-line="64" />
+            <state relative-caret-position="289">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -100,11 +100,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ACE.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ACE.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/ACE.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="260" column="23" selection-start-line="260" selection-start-column="23" selection-end-line="260" selection-end-column="23" />
+            <state relative-caret-position="-4937">
+              <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -138,7 +138,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>type</find>
       <find>offset</find>
       <find>fft</find>
       <find>NmaximaReject</find>
@@ -168,6 +167,7 @@
       <find>print</find>
       <find>process</find>
       <find>params</find>
+      <find>params.weights</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -193,8 +193,8 @@
         <option value="$PROJECT_DIR$/venv/Alans_Matlab/test.js" />
         <option value="$PROJECT_DIR$/venv/Alans_Matlab/resample_tfm.py" />
         <option value="$PROJECT_DIR$/venv/Simple_visualiser/main.py" />
-        <option value="$PROJECT_DIR$/venv/Alans_Matlab/main.py" />
         <option value="$PROJECT_DIR$/venv/Alans_Matlab/ACE.py" />
+        <option value="$PROJECT_DIR$/venv/Alans_Matlab/main.py" />
       </list>
     </option>
   </component>
@@ -470,9 +470,9 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3274648" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32922536" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49716598" visible="true" weight="0.27640846" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49716598" visible="true" weight="0.27640846" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3309859" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2631579" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2631579" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.32955465" />
       <window_info anchor="right" x="0" y="11" width="1281" height="667" id="SciView" order="4" sideWeight="0.484375" weight="0.2340081" />
@@ -874,30 +874,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/MAP.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2499">
-          <caret line="152" column="45" selection-start-line="152" selection-start-column="45" selection-end-line="152" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/resample_tfm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -915,8 +895,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/ACE.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="260" column="23" selection-start-line="260" selection-start-column="23" selection-end-line="260" selection-end-column="23" />
+        <state relative-caret-position="-4937">
+          <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/MAP.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1870">
+          <caret line="76" column="31" selection-start-line="76" selection-start-column="31" selection-end-line="76" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
