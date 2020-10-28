@@ -88,8 +88,8 @@ class ACE(object):
         shape = u.shape
         u = u[0:shape[0]][0:shape[1]-1]
 
-
-        u = np.delete(u, 2798,1)
+#why is this here?!!?!?!?!?!?1
+        #u = np.delete(u, 2798,1)
 
 
         u = np.array(u)
