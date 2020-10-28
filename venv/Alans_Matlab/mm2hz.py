@@ -1,6 +1,6 @@
 # function cf = mm2hz(pos,k)
 #
-#This function relates position on basilar membrane to freqency based on
+# This function relates position on basilar membrane to freqency based on
 #   data given in Greenwood (1990).
 #
 # Input parameter:
@@ -19,14 +19,17 @@
 #
 import numpy as np
 
-def mm2hz(pos,k = 0.88):
-    #i dont check if k and 'var' exist like matlab does, not sur ehow important that is?
-    #instead i just set default value of k to 0.88, a low limit freq of 20Hz
+def mm2hz(pos, k=0.88):
+    # i dont check if k and 'var' exist like matlab does, not sur ehow important that is?
+    # instead i just set default value of k to 0.88, a low limit freq of 20Hz
 
     bmLength = 35
 
     a = 2.1
     A = 165.4
-    cf = A*(np.power(10, (np.divide(np.multiply(a,pos)),bmLength))- k)
+    # cf = A*(np.power(10, (np.divide(np.multiply(a,pos)),bmLength))- k)
+    cf = A * (np.power(10, (a * pos / bmLength) - k))
+
     return cf
+
 

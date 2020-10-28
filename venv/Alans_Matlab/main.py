@@ -9,6 +9,10 @@ import sounddevice as sd
 import matplotlib
 import matplotlib.pyplot as plt
 import scipy
+from cfFromCSV import cfFromCSV
+from mm2hz import mm2hz
+from freqsFromCSV import freqsFromCSV
+
 #define useful paramters
 gain = 1 # input gain in dB, > 0
 
@@ -17,7 +21,7 @@ gain = 1 # input gain in dB, > 0
 
 
 #get audio signal
-[stim, fs] = sf.read("DORMAN_input.wav")
+[stim, fs] = sf.read("camping16k.wav")
 
 
 stim = np.multiply(np.power(gain/1, 10), stim)
@@ -46,14 +50,11 @@ t = np.divide(t,fs)
 #numbands = 22
 
 
-freqs = [0] * 22
-for i in range (0,len(m.F_Low)):
-
-    freqs[i] =( m.F_Low[i] + m.F_High[i] )/ 2
-#freqs = np.mean([m.F_Low, m.F_High], 2)
-
-#Read in freqs from a file.
-
+#Read in cf from a file.
+    #depth in mm
+insertionDepth = 3
+freqs = freqsFromCSV("CI_spacing.csv", insertionDepth)
+print(freqs, "freqs")
 sine_component = []
 for i in range(0, len(freqs)):
     curr = np.sin(2 * np.pi * t * freqs[i])
@@ -61,8 +62,6 @@ for i in range(0, len(freqs)):
 
 
 sine_component = np.asarray(sine_component)
-np.savetxt('sine.csv', sine_component, delimiter=',')
-
 #print(tfm)
 #modulate tf matrix onto sine wave carriers
 mod_tfm = np.multiply(sine_component, tfm)
@@ -86,7 +85,8 @@ voc_stim = np.divide(voc_stim, 12)
 #status = sd.wait()
 
 # matlab soundsc normalises audio between -1 and 1
-sf.write('myfile.wav', voc_stim, fs)
+
+sf.write("myfileDepth" + str(insertionDepth) + "mm.wav", voc_stim, fs)
 
 
 
