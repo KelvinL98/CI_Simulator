@@ -17,7 +17,7 @@ gain = 1 # input gain in dB, > 0
 
 
 #get audio signal
-[stim, fs] = sf.read("DORMAN_input.wav")
+[stim, fs] = sf.read("camping16k.wav")
 
 
 stim = np.multiply(np.power(gain/1, 10), stim)
@@ -48,6 +48,7 @@ t = np.divide(t,fs)
 
 freqs = [0] * 22
 for i in range (0,len(m.F_Low)):
+
 
     freqs[i] =( m.F_Low[i] + m.F_High[i] )/ 2
 #freqs = np.mean([m.F_Low, m.F_High], 2)

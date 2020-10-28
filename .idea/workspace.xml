@@ -15,7 +15,7 @@
     <SUITE FILE_PATH="coverage/CI_Simulator$MAP.coverage" NAME="MAP Coverage Results" MODIFIED="1599175237159" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Alans_Matlab" />
     <SUITE FILE_PATH="coverage/CI_Simulator$test.coverage" NAME="test Coverage Results" MODIFIED="1601343616185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Simple_visualiser" />
     <SUITE FILE_PATH="coverage/CI_Simulator$hzTomm.coverage" NAME="hzTomm Coverage Results" MODIFIED="1603852752506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Alans_Matlab" />
-    <SUITE FILE_PATH="coverage/CI_Simulator$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1603849331024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Alans_Matlab" />
+    <SUITE FILE_PATH="coverage/CI_Simulator$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1603858772608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Alans_Matlab" />
     <SUITE FILE_PATH="coverage/CI_Simulator$CarrierGen.coverage" NAME="CarrierGen Coverage Results" MODIFIED="1597560776467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/CarrierModulation" />
     <SUITE FILE_PATH="coverage/CI_Simulator$buffer.coverage" NAME="buffer Coverage Results" MODIFIED="1601881059980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Alans_Matlab" />
     <SUITE FILE_PATH="coverage/CI_Simulator$main.coverage" NAME="main Coverage Results" MODIFIED="1599799001472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Simple_visualiser" />
@@ -54,7 +54,7 @@
       <file leaf-file-name="MAP.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/MAP.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
+            <state relative-caret-position="2193">
               <caret line="129" column="20" selection-start-line="129" selection-start-column="20" selection-end-line="129" selection-end-column="20" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -63,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="561">
+              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
               <folding>
                 <element signature="e#2#20#0" expanded="true" />
               </folding>
@@ -75,20 +75,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mm2hz.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/mm2hz.py">
+      <file leaf-file-name="soundfile.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/soundfile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+            <state relative-caret-position="-15">
+              <caret line="1547" column="24" selection-start-line="1547" selection-start-column="24" selection-end-line="1547" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hz2mm.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mm2hz.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/mm2hz.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-11">
+              <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hz2mm.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/hz2mm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+            <state relative-caret-position="136">
+              <caret line="8" column="19" selection-end-line="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hzTomm.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/hzTomm.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
             </state>
           </provider>
         </entry>
@@ -96,8 +114,8 @@
       <file leaf-file-name="ACE.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/ACE.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="131" column="31" selection-start-line="131" selection-start-column="31" selection-end-line="131" selection-end-column="31" />
+            <state relative-caret-position="85">
+              <caret line="135" selection-start-line="135" selection-end-line="135" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -173,9 +191,9 @@
         <option value="$PROJECT_DIR$/venv/Alans_Matlab/resample_tfm.py" />
         <option value="$PROJECT_DIR$/venv/Simple_visualiser/main.py" />
         <option value="$PROJECT_DIR$/venv/Alans_Matlab/ACE.py" />
-        <option value="$PROJECT_DIR$/venv/Alans_Matlab/main.py" />
         <option value="$PROJECT_DIR$/venv/Alans_Matlab/mm2hz.py" />
         <option value="$PROJECT_DIR$/venv/Alans_Matlab/hz2mm.py" />
+        <option value="$PROJECT_DIR$/venv/Alans_Matlab/main.py" />
       </list>
     </option>
   </component>
@@ -281,7 +299,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.hzTomm">
+  <component name="RunManager" selected="Python.main (1)">
     <configuration name="__init__" type="PythonConfigurationType" factoryName="Python">
       <module name="CI_Simulator" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -406,9 +424,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main (1)" />
         <item itemvalue="Python.hzTomm" />
         <item itemvalue="Python.mm2hz" />
-        <item itemvalue="Python.main (1)" />
         <item itemvalue="Python.buffer" />
         <item itemvalue="Python.test" />
       </list>
@@ -470,39 +488,54 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3996479" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3996479" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2680162" />
+      <window_info anchor="right" x="0" y="11" width="1281" height="667" id="SciView" order="4" sideWeight="0.484375" weight="0.2340081" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32857144" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3274648" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49635628" visible="true" weight="0.27640846" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" x="0" y="0" width="273" height="504" id="Documentation" order="5" sideWeight="0.515625" side_tool="true" weight="0.2340081" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32955465" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50364375" side_tool="true" weight="0.27640846" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3309859" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="8" weight="0.32922536" />
+      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32922536" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25506073" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32857144" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3274648" />
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49716598" visible="true" weight="0.31161973" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32922536" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3996479" />
       <window_info anchor="right" x="0" y="0" width="273" height="504" id="Documentation" order="5" sideWeight="0.515625" side_tool="true" weight="0.2340081" />
       <window_info anchor="right" id="Database" order="3" weight="0.32955465" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.3309859" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.502834" side_tool="true" weight="0.32394367" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3274648" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" x="0" y="11" width="1281" height="667" id="SciView" order="4" sideWeight="0.484375" weight="0.2340081" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32922536" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32922536" />
+      <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,7 +579,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url />
+          <url>file://$PROJECT_DIR$/venv/CarrierModulation/SineVocode.py</url>
           <line>23</line>
         </line-breakpoint>
       </breakpoints>
@@ -867,8 +900,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/ACE.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="131" column="31" selection-start-line="131" selection-start-column="31" selection-end-line="131" selection-end-column="31" />
+        <state relative-caret-position="85">
+          <caret line="135" selection-start-line="135" selection-end-line="135" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -877,7 +910,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/MAP.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
+        <state relative-caret-position="2193">
           <caret line="129" column="20" selection-start-line="129" selection-start-column="20" selection-end-line="129" selection-end-column="20" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
@@ -887,15 +920,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/soundfile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+        <state relative-caret-position="-15">
+          <caret line="1547" column="24" selection-start-line="1547" selection-start-column="24" selection-end-line="1547" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="561">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="e#2#20#0" expanded="true" />
           </folding>
@@ -914,15 +947,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/mm2hz.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+        <state relative-caret-position="-11">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/hz2mm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+        <state relative-caret-position="136">
+          <caret line="8" column="19" selection-end-line="31" />
         </state>
       </provider>
     </entry>
