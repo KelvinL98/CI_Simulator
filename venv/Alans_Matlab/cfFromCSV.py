@@ -13,5 +13,6 @@ def cfFromCSV(file):
             else:
                 cf.append(row[1])
                 line_count += 1
+                print(row[1])
 
     return cf

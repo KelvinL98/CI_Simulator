@@ -52,8 +52,10 @@ t = np.divide(t,fs)
 
 #Read in cf from a file.
     #depth in mm
-insertionDepth = 3
-freqs = freqsFromCSV("CI_spacing.csv", insertionDepth)
+insertionDepth = 20
+#freqs = freqsFromCSV("CI_spacing.csv", insertionDepth)
+freqs = cfFromCSV("BillsCenterFreqs.csv")
+freqs = np.double(freqs[::-1])
 print(freqs, "freqs")
 sine_component = []
 for i in range(0, len(freqs)):
@@ -86,7 +88,7 @@ voc_stim = np.divide(voc_stim, 12)
 
 # matlab soundsc normalises audio between -1 and 1
 
-sf.write("myfileDepth" + str(insertionDepth) + "mm.wav", voc_stim, fs)
+sf.write("/OutputFiles/myfileDepth" + str(insertionDepth) + "mm.wav", voc_stim, fs)
 
 
 
