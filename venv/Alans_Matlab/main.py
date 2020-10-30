@@ -88,7 +88,7 @@ voc_stim = np.divide(voc_stim, 12)
 
 # matlab soundsc normalises audio between -1 and 1
 
-sf.write("/OutputFiles/myfileDepth" + str(insertionDepth) + "mm.wav", voc_stim, fs)
+sf.write("./OutputFiles/myfileDepth" + str(insertionDepth) + "mm.wav", voc_stim, fs)
 
 
 

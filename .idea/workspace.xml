@@ -15,7 +15,8 @@
     <SUITE FILE_PATH="coverage/CI_Simulator$MAP.coverage" NAME="MAP Coverage Results" MODIFIED="1599175237159" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Alans_Matlab" />
     <SUITE FILE_PATH="coverage/CI_Simulator$test.coverage" NAME="test Coverage Results" MODIFIED="1601343616185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Simple_visualiser" />
     <SUITE FILE_PATH="coverage/CI_Simulator$hzTomm.coverage" NAME="hzTomm Coverage Results" MODIFIED="1603852752506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Alans_Matlab" />
-    <SUITE FILE_PATH="coverage/CI_Simulator$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1603863675547" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Alans_Matlab" />
+    <SUITE FILE_PATH="coverage/CI_Simulator$insertionDepthGUI.coverage" NAME="insertionDepthGUI Coverage Results" MODIFIED="1604021616719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Alans_Matlab" />
+    <SUITE FILE_PATH="coverage/CI_Simulator$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1604022019542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Alans_Matlab" />
     <SUITE FILE_PATH="coverage/CI_Simulator$CarrierGen.coverage" NAME="CarrierGen Coverage Results" MODIFIED="1597560776467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/CarrierModulation" />
     <SUITE FILE_PATH="coverage/CI_Simulator$buffer.coverage" NAME="buffer Coverage Results" MODIFIED="1601881059980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Alans_Matlab" />
     <SUITE FILE_PATH="coverage/CI_Simulator$main.coverage" NAME="main Coverage Results" MODIFIED="1599799001472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Simple_visualiser" />
@@ -75,13 +76,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ci_sim_gui.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ci_sim_gui.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/ci_sim_gui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-395">
-              <caret line="61" column="34" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
+            <state relative-caret-position="302">
+              <caret line="98" lean-forward="true" selection-start-line="15" selection-end-line="98" />
               <folding>
                 <element signature="e#2#20#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="insertionDepthGUI.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/insertionDepthGUI.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="88" column="8" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="8" />
+              <folding>
+                <element signature="e#207#249#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -150,7 +163,6 @@
       <find>write</find>
       <find>csv</find>
       <find>u</find>
-      <find>print</find>
       <find>process</find>
       <find>window</find>
       <find>self.window</find>
@@ -159,8 +171,9 @@
       <find>freq_response</find>
       <find>params</find>
       <find>params.weights</find>
-      <find>params.csv</find>
       <find>insertionDepth</find>
+      <find>params.csv</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -194,6 +207,7 @@
         <option value="$PROJECT_DIR$/venv/Alans_Matlab/cfFromCSV.py" />
         <option value="$PROJECT_DIR$/venv/Alans_Matlab/main.py" />
         <option value="$PROJECT_DIR$/venv/Alans_Matlab/ci_sim_gui.py" />
+        <option value="$PROJECT_DIR$/venv/Alans_Matlab/insertionDepthGUI.py" />
       </list>
     </option>
   </component>
@@ -305,7 +319,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.SineVocode">
+  <component name="RunManager" selected="Python.main (1)">
     <configuration name="SineVocode" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="CI-Sim" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -344,25 +358,6 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="buffer" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="CI-Sim" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv/Alans_Matlab" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/Alans_Matlab/buffer.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration name="hzTomm" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="CI-Sim" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -377,6 +372,25 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/Alans_Matlab/hzTomm.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="insertionDepthGUI" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="CI-Sim" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv/Alans_Matlab" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/Alans_Matlab/insertionDepthGUI.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -423,18 +437,18 @@
     <list>
       <item itemvalue="Python.__init__" />
       <item itemvalue="Python.main (1)" />
-      <item itemvalue="Python.buffer" />
       <item itemvalue="Python.mm2hz" />
       <item itemvalue="Python.hzTomm" />
       <item itemvalue="Python.SineVocode" />
+      <item itemvalue="Python.insertionDepthGUI" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.SineVocode" />
         <item itemvalue="Python.main (1)" />
+        <item itemvalue="Python.insertionDepthGUI" />
+        <item itemvalue="Python.SineVocode" />
         <item itemvalue="Python.hzTomm" />
         <item itemvalue="Python.mm2hz" />
-        <item itemvalue="Python.buffer" />
       </list>
     </recent_temporary>
   </component>
@@ -477,6 +491,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32857144" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50364375" side_tool="true" weight="0.27640846" />
@@ -484,9 +499,9 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3274648" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32922536" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49635628" visible="true" weight="0.27640846" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49635628" visible="true" weight="0.27640846" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3309859" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2680162" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2680162" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.32955465" />
       <window_info anchor="right" x="0" y="11" width="1281" height="667" id="SciView" order="4" sideWeight="0.484375" weight="0.2340081" />
@@ -592,13 +607,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/venv/Simple_visualiser/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/Bandpass/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1394">
@@ -919,16 +927,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/MAP.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2193">
-          <caret line="129" column="20" selection-start-line="129" selection-start-column="20" selection-end-line="129" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -949,12 +947,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/MAP.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2193">
+          <caret line="129" column="20" selection-start-line="129" selection-start-column="20" selection-end-line="129" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/ci_sim_gui.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-395">
-          <caret line="61" column="34" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
+        <state relative-caret-position="302">
+          <caret line="98" lean-forward="true" selection-start-line="15" selection-end-line="98" />
           <folding>
             <element signature="e#2#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/insertionDepthGUI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="88" column="8" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="8" />
+          <folding>
+            <element signature="e#207#249#0" expanded="true" />
           </folding>
         </state>
       </provider>

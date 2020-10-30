@@ -14,7 +14,7 @@ from mm2hz import mm2hz
 from freqsFromCSV import freqsFromCSV
 
 
-def executeAce(input, insertionDepth):
+def executeAce(input, insertionDepth, cfFile = "", freqsFile = ""):
 
     #define useful paramters
     gain = 1 # input gain in dB, > 0
