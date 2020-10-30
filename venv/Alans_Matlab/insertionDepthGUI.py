@@ -120,15 +120,19 @@ def executeAce(input, insertionDepth, cfFile="", freqsFile=""):
     t = np.array(range(0, (np.size(tfm, 1))))
 
     t = np.divide(t, fs)
-    # numbands = 22
 
-    # Read in cf from a file.
-    # depth in mm
-    # insertionDepth = 20
-    # freqs = freqsFromCSV("CI_spacing.csv", insertionDepth)
-    freqs = cfFromCSV("BillsCenterFreqs.csv")
-    # flip for cfFromCSV and leave in order for freqsFromCSV
-    freqs = np.double(freqs[::-1])
+    if (cfFile):
+        freqs = cfFromCSV(cfFile)
+        #atm cf file is formatted in opposite order
+        freqs = np.double(freqs[::-1])
+    elif (freqsFile):
+        freqs = freqsFromCSV(freqsFile, insertionDepth)
+    else:
+        #use values from map
+        freqs = [0] * 22
+        for i in range(0, len(m.F_Low)):
+            freqs[i] = (m.F_Low[i] + m.F_High[i]) / 2
+        # freqs = np.mean([m.F_Low, m.F_High], 2)
 
     sine_component = []
     for i in range(0, len(freqs)):

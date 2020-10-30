@@ -67,20 +67,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
-              <folding>
-                <element signature="e#2#20#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ci_sim_gui.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/ci_sim_gui.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="98" lean-forward="true" selection-start-line="15" selection-end-line="98" />
+            <state relative-caret-position="312">
+              <caret line="85" column="1" selection-start-line="85" selection-start-column="1" selection-end-line="85" selection-end-column="1" />
               <folding>
                 <element signature="e#2#20#0" expanded="true" />
               </folding>
@@ -91,8 +79,8 @@
       <file leaf-file-name="insertionDepthGUI.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/insertionDepthGUI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="88" column="8" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="8" />
+            <state relative-caret-position="-1150">
+              <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
               <folding>
                 <element signature="e#207#249#0" expanded="true" />
               </folding>
@@ -103,7 +91,7 @@
       <file leaf-file-name="AmplitudeModSample.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/CarrierModulation/AmplitudeModSample.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
+            <state relative-caret-position="-215">
               <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
             </state>
           </provider>
@@ -113,7 +101,7 @@
         <entry file="file://$PROJECT_DIR$/venv/CarrierModulation/CarrierGen.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1513">
-              <caret line="96" column="32" lean-forward="true" selection-start-line="96" selection-start-column="32" selection-end-line="96" selection-end-column="32" />
+              <caret line="96" column="32" selection-start-line="96" selection-start-column="32" selection-end-line="96" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -172,8 +160,8 @@
       <find>params</find>
       <find>params.weights</find>
       <find>insertionDepth</find>
-      <find>params.csv</find>
       <find>print</find>
+      <find>params.csv</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -205,8 +193,8 @@
         <option value="$PROJECT_DIR$/venv/Alans_Matlab/mm2hz.py" />
         <option value="$PROJECT_DIR$/venv/Alans_Matlab/freqsFromCSV.py" />
         <option value="$PROJECT_DIR$/venv/Alans_Matlab/cfFromCSV.py" />
-        <option value="$PROJECT_DIR$/venv/Alans_Matlab/main.py" />
         <option value="$PROJECT_DIR$/venv/Alans_Matlab/ci_sim_gui.py" />
+        <option value="$PROJECT_DIR$/venv/Alans_Matlab/main.py" />
         <option value="$PROJECT_DIR$/venv/Alans_Matlab/insertionDepthGUI.py" />
       </list>
     </option>
@@ -893,13 +881,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/CarrierModulation/AmplitudeModSample.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/CarrierModulation/SineVocode.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -913,7 +894,7 @@
     <entry file="file://$PROJECT_DIR$/venv/CarrierModulation/CarrierGen.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1513">
-          <caret line="96" column="32" lean-forward="true" selection-start-line="96" selection-start-column="32" selection-end-line="96" selection-end-column="32" />
+          <caret line="96" column="32" selection-start-line="96" selection-start-column="32" selection-end-line="96" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -927,22 +908,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
-          <folding>
-            <element signature="e#2#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/resample_tfm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="159">
           <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/CarrierModulation/AmplitudeModSample.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-215">
+          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/ci_sim_gui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1581">
+          <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
+          <folding>
+            <element signature="e#2#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -957,10 +945,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/ci_sim_gui.py">
+    <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="98" lean-forward="true" selection-start-line="15" selection-end-line="98" />
+        <state relative-caret-position="312">
+          <caret line="85" column="1" selection-start-line="85" selection-start-column="1" selection-end-line="85" selection-end-column="1" />
           <folding>
             <element signature="e#2#20#0" expanded="true" />
           </folding>
@@ -969,8 +957,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/Alans_Matlab/insertionDepthGUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="88" column="8" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="8" />
+        <state relative-caret-position="-1150">
+          <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
           <folding>
             <element signature="e#207#249#0" expanded="true" />
           </folding>
