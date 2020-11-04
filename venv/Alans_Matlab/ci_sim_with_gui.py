@@ -47,6 +47,7 @@ class Main(QtWidgets.QMainWindow):
         self.iDepthSlider.valueChanged.connect(self.handleiDepthSliderChange)
         self.iDepthNumBox.valueChanged.connect(self.handleiDepthNumBoxChange)
         self.playButton.clicked.connect(self.play)
+
     def handleiDepthSliderChange(self, value):
         self.iDepthNumBox.setValue(value)
 
@@ -54,9 +55,10 @@ class Main(QtWidgets.QMainWindow):
         self.iDepthSlider.setValue(value)
 
     def play(self):
-        executeAce("camping16k.wav", self.iDepthSlider.value)
+        iDepth = self.iDepthSlider.value
+        executeAce("camping16k.wav", iDepth, "BillsCenterFreqs.csv")
 
-def executeAce( input, insertionDepth, cfFile="", freqsFile=""):
+def executeAce( input, insertionDepth, freqsFile, cfFile=""):
 
     # define useful paramters
     gain = 1  # input gain in dB, > 0
@@ -64,7 +66,7 @@ def executeAce( input, insertionDepth, cfFile="", freqsFile=""):
     # downsample audio signal to 16k
 
     # get audio signal
-    [stim, fs] = sf.read("camping16k.wav")
+    [stim, fs] = sf.read(input)
 
     stim = np.multiply(np.power(gain / 1, 10), stim)
 
@@ -79,29 +81,35 @@ def executeAce( input, insertionDepth, cfFile="", freqsFile=""):
     # run ACE on audio file and get time freq matrix
 
     out = ace.process(stim)
-    print(out)
     # resample tf matrix
     tfm = resample_tfm(out.levels, m.AnalysisRate, fs)
-    print(np.max(tfm), np.min(tfm))
     # create sine wave
 
-    print(np.size(tfm, 1))
     t = np.array(range(0, (np.size(tfm, 1))))
 
     t = np.divide(t, fs)
 
+    #assign freqs based off input file or use default values from mapping.
     if (cfFile):
         freqs = cfFromCSV(cfFile)
         #atm cf file is formatted in opposite order
         freqs = np.double(freqs[::-1])
+        print("CF file")
     elif (freqsFile):
-        freqs = freqsFromCSV(freqsFile, insertionDepth)
+
+        freqs = cfFromCSV(freqsFile, insertionDepth)
+        # get depth and spacings from frequencies
+        insertionDepth, spacing = freqsToDepth(freqs)
+        # get frequencies from spacing and depth
+        freqs = freqsFromSpacing(spacing, insertionDepth)
+        print(insertionDepth + "idepth")
     else:
         #use values from map
         freqs = [0] * 22
         for i in range(0, len(m.F_Low)):
             freqs[i] = (m.F_Low[i] + m.F_High[i]) / 2
         # freqs = np.mean([m.F_Low, m.F_High], 2)
+        print("default")
 
     sine_component = []
     for i in range(0, len(freqs)):
@@ -118,8 +126,6 @@ def executeAce( input, insertionDepth, cfFile="", freqsFile=""):
     voc_stim = []
     mod_tfm = mod_tfm.T
 
-    print(np.min(mod_tfm), np.max(mod_tfm))
-
     for i in range(0, np.size(mod_tfm, 0)):
         voc_stim.append(np.sum(mod_tfm[i]))
 
@@ -132,9 +138,8 @@ def executeAce( input, insertionDepth, cfFile="", freqsFile=""):
     status = sd.wait()
 
     # matlab soundsc normalises audio between -1 and 1
-    print(insertionDepth)
     #sf.write("/OutputFiles/myfileDepth" + str(insertionDepth) + "mm.wav", voc_stim, fs)
-    return voc_stim
+    #return voc_stim
 
 
 def window():

@@ -1,25 +1,26 @@
-
-
 import numpy as np
 import soundfile as sf
 import ACE
 import MAP
-from resample_tfm import resample_tfm
+
 import sounddevice as sd
 import matplotlib
 import matplotlib.pyplot as plt
 import scipy
+
+from resample_tfm import resample_tfm
 from cfFromCSV import cfFromCSV
 from mm2hz import mm2hz
 from freqsFromCSV import freqsFromCSV
 from freqsToDepth import freqsToDepth
 from freqsFromSpacing import freqsFromSpacing
+
+
 #define useful paramters
 gain = 1 # input gain in dB, > 0
 
 
-#downsample audio signal to 16k
-
+#need to downsample audio signal to 16k
 
 #get audio signal
 [stim, fs] = sf.read("camping16k.wav")
@@ -75,11 +76,18 @@ for i in range(0, len(freqs)):
 
 
 
+
 sine_component = np.asarray(sine_component)
-print(np.size(sine_component))
+#print(sine_component)
 
-noise_component = np.random.normal(0,0.2,size=(sine_component.shape))
 
+noise_component = np.random.normal(0,5,size=(sine_component.shape))
+for i in range(0, len(freqs)):
+    low = m.F_Low[i]/(fs/2)
+    high = m.F_High[i]/(fs/2)
+
+    currFilter = scipy.signal.butter(3, (low, high), btype = 'bandpass')
+    noise_component[i] = scipy.signal.filtfilt(currFilter[0], currFilter[1], noise_component[i])
 #print(tfm)
 #modulate tf matrix onto sine wave carriers
 #mod_tfm = np.multiply(sine_component, tfm)
