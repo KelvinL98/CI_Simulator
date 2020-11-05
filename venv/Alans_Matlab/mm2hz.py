@@ -28,8 +28,10 @@ def mm2hz(pos, k=0.88):
     a = 2.1
     A = 165.4
     # cf = A*(np.power(10, (np.divide(np.multiply(a,pos)),bmLength))- k)
-    cf = A * (np.power(10, (a * pos / bmLength) - k))
+    #cf = A * (np.power(10, ((a * pos) / bmLength)) - k)
 
+    cf = A * (pow(10,(a * pos/bmLength)) - k)
+    print(cf)
     return cf
 
 

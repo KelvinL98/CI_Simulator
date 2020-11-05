@@ -11,6 +11,7 @@ import scipy
 from resample_tfm import resample_tfm
 from cfFromCSV import cfFromCSV
 from mm2hz import mm2hz
+from hzTomm import hzTomm
 from freqsFromCSV import freqsFromCSV
 from freqsToDepth import freqsToDepth
 from freqsFromSpacing import freqsFromSpacing
@@ -61,11 +62,11 @@ insertionDepth = 30
 # use cfFromCSV to read CSV
     #then flip the array as cfFromCSV has reversed order.
 freqs = cfFromCSV("BillsCenterFreqs.csv")
-#get depth and spacings from frequencies
+#get depth and spacings from frequencie
 insertionDepth, spacing = freqsToDepth(freqs)
 #get frequencies from spacing and depth
 freqs = freqsFromSpacing(spacing, insertionDepth)
-freqs = np.multiply(freqs, 2)
+#freqs = np.multiply(freqs, 2)
 print("insertion depth: " + str(insertionDepth))
 
 
@@ -80,14 +81,24 @@ for i in range(0, len(freqs)):
 sine_component = np.asarray(sine_component)
 #print(sine_component)
 
-
+print("freqs", freqs)
+print(hzTomm(346), print(mm2hz(hzTomm(346))), "herer")
 noise_component = np.random.normal(0,5,size=(sine_component.shape))
 for i in range(0, len(freqs)):
-    low = m.F_Low[i]/(fs/2)
-    high = m.F_High[i]/(fs/2)
+   # low = m.F_Low[i]/(fs/2)
+    #high = m.F_High[i]/(fs/2)
+    depth = hzTomm(freqs[i])
+
+    print(freqs[i], depth, mm2hz(depth), "freq,depth,backagai")
+
+
+    low = mm2hz(depth-1)/(fs/2)
+    high = mm2hz(depth+1)/(fs/2)
 
     currFilter = scipy.signal.butter(3, (low, high), btype = 'bandpass')
     noise_component[i] = scipy.signal.filtfilt(currFilter[0], currFilter[1], noise_component[i])
+
+
 #print(tfm)
 #modulate tf matrix onto sine wave carriers
 #mod_tfm = np.multiply(sine_component, tfm)

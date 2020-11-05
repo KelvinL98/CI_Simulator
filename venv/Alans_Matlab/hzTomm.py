@@ -24,8 +24,11 @@ def hzTomm(cf, k = 0.88):
     A = 165.4
     cfA = np.divide(cf,A)
     cfAk = np.add(cfA, k)
-    bmLengthA = np.divide(bmLength, A)
-    pos = np.log10(np.multiply(cfAk, bmLengthA))
+  #  bmLengthA = np.divide(bmLength, A)
+    bmLengthA = bmLength / A
+  #  pos = np.log10(np.multiply(cfAk, bmLengthA))
+    pos = np.log10((cf/A) + k) * bmLength/a
+
     return pos
 
 
