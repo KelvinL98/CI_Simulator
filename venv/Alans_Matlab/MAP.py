@@ -160,6 +160,7 @@ def calc_LGF_alpha(Q, BaseLevel, SaturationLevel):
 
 
 def hardcode(self):
+    #hardcode in "CI1_ACE_LEFT.txt"
     self.Filename = "CI1_ACE_left.txt"
     self.SubjectID = "CI1"
     self.ImplantType = "CI24RE"
@@ -171,7 +172,6 @@ def hardcode(self):
     self.Q = 20.0
     self.TSPL = 25.0
     self.CSPL = 65.0
-
     self.EL = [22,21,20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1]
     self.EL = np.array(self.EL)
     self.F_Low = [188,313,438,563,688,813,938,1063,1188,1313,1563,

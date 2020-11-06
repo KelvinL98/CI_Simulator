@@ -19,6 +19,7 @@ from freqsFromSpacing import freqsFromSpacing
 
 #define useful paramters
 gain = 1 # input gain in dB, > 0
+inputDepth = 0
 
 
 #need to downsample audio signal to 16k
@@ -54,41 +55,35 @@ t = np.divide(t,fs)
 
 
 #Read in cf from a file.
-    #depth in mm
-insertionDepth = 30
+
 #freqs = freqsFromCSV("CI_spacing.csv", insertionDepth)
 
 
 # use cfFromCSV to read CSV
     #then flip the array as cfFromCSV has reversed order.
 freqs = cfFromCSV("BillsCenterFreqs.csv")[::-1]
-print("freqz",freqs)
 #get depth and spacings from frequencie
 insertionDepth, spacing = freqsToDepth(freqs)
-print(insertionDepth, spacing)
 #get frequencies from spacing and depth
-freqs = freqsFromSpacing(spacing, insertionDepth)
+selectedDepth = inputDepth + insertionDepth
+freqs = freqsFromSpacing(spacing, selectedDepth)
 #freqs = np.multiply(freqs, 2)
-print("insertion depth: " + str(insertionDepth))
 
 
 sine_component = []
+#set frequency of sine waves to be freqs
 for i in range(0, len(freqs)):
     curr = np.sin(2 * np.pi * t * freqs[i])
     sine_component.append(curr)
 
-
-
-
 sine_component = np.asarray(sine_component)
-#print(sine_component)
 
-noise_component = np.random.normal(0,5,size=(sine_component.shape))
+noise_component = np.random.normal(0,2,size=(sine_component.shape))
 for i in range(0, len(freqs)):
     low = m.F_Low[i]/(fs/2)
     high = m.F_High[i]/(fs/2)
     depth = hzTomm(freqs[i])
-    
+
 
     #low = mm2hz(depth-1) / (fs/2)
    # high = mm2hz(depth+1) / (fs/2)
@@ -99,10 +94,10 @@ for i in range(0, len(freqs)):
 
 #print(tfm)
 #modulate tf matrix onto sine wave carriers
-#mod_tfm = np.multiply(sine_component, tfm)
+mod_tfm = np.multiply(sine_component, tfm)
 
 #modulate tf onto noise
-mod_tfm = np.multiply(noise_component,tfm)
+#mod_tfm = np.multiply(noise_component,tfm)
 
 #print(mod_tfm)
 #sum bands  together to create the audio signal

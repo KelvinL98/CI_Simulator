@@ -255,11 +255,8 @@ def freq_response_equalization(w, window, blocksize, numbands, band_bins):
     [throwaway,freq_response] =  scipy.signal.freqz((window/2), 1, blocksize,
                                                     include_nyquist= True)
 
-    print(freq_response, np.shape(freq_response))
-    np.savetxt("freqresponse.csv", freq_response, delimiter=",")
     freq_conj = np.conj(freq_response)
     power_response = np.multiply(np.asarray(freq_response), np.asarray(freq_conj))
-    np.savetxt("powerresponse.csv", power_response, delimiter=",")
     P1 = power_response[0]
     P2 = np.multiply(2, power_response[1])
     P3 = np.add(power_response[0], (np.multiply(2, power_response[2])))
@@ -367,6 +364,7 @@ def compress(u, base_level, saturation_level, lgf_alpha, sub_mag):
 
 
 def buffer(x, n, p=0, opt=None):
+    #Based on code from stack overflow
     if opt not in ('nodelay', None):
         raise ValueError('{} not implemented'.format(opt))
 
